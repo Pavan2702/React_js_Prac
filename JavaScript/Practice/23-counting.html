@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            height: 300px;
+            width: 300px;
+            background-color: black;
+            color: white;
+            display: grid;
+            place-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">
+        <script>
+            let count = setInterval(counts)
+            let start = 100;
+            function counts(){
+                let div = document.getElementById("box1")
+                div.innerHTML= "+" + ++start;
+                if(start==600){
+                    clearInterval(count)
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.container{
+    margin: 0px 150px;
+}
+.header-p{
+    padding: 20px 0px;
+}
+header{
+    background-color: rgba(88, 92, 92, 0.296);
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+header .navigation{
+    display: flex;
+    align-items: center;
+}
+header .navigation .logo{
+    flex: 1;
+}
+header .theme{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* font-size: 30px; */
+}
+header .theme .moon{
+    font-size: 25px;
+}
+header .theme .bars button{
+    align-items: center;
+    height: 25px;
+    width: 25px;
+    border: 2px solid black;
+    font-size: 20px;
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+}
+/* section */
+section img{
+    height: auto;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    top: 0;
+}
+/* New Css */
+.menubar{
+    background-color: brown;
+    position: fixed;
+    /* top: -230px; */
+    /* top: 0; */
+    /* left: 0; */
+    right: 0;
+    /* bottom: 0; */
+    height: 100%;
+    transform: scale(0);
+    width: 50%;
+    transition: 1s all ease-in-out;
+}
+.menubar .navbar{
+    position: relative;
+}
+.menubar .closebtn{
+    position: absolute;
+    top: 10px;
+    right: 150px;
+}
+.menubar .navbar .closebtn button{
+    align-items: center;
+    height: 25px;
+    width: 25px;
+    border: 2px solid black;
+    font-size: 20px;
+    background-color: transparent;
+    /* position: absolute; */
+    justify-content: end;
+    cursor: pointer;
+}
+.menubar ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+}
+.menubar li{
+    padding: 10px 0px;
+}
+.menubar li a{
+    color: black;
+}
+
+/* ========================= */
+
+.menu-tbar{
+    background-color: brown;
+    position: fixed;
+    width: 50%;
+    /* inset: 0; */
+    /* top: 0; */
+    right: 0;
+    /* left: 0; */
+    /* bottom: 0; */
+    height: 100%;
+    transform: scale(1);
+    transition: 1s all ease-in-out;
+    
+}
+.menu-tbar ul
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+}
+.menu-tbar li{
+    padding: 10px 0px;
+}
+.menu-tbar li a{
+    color: black;
+}

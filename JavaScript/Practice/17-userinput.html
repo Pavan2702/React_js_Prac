@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#">
+        <label for="">Enter the Value</label>
+        <input type="text" id="showvalue" value="">
+        <button onclick="return display()">Click</button>
+        <p id="msg"></p>
+    </form>
+        <script>
+            function display()
+            {
+                let sv = document.getElementById("showvalue").value;
+                document.getElementById("msg").innerText = sv;
+                return false
+            }
+        </script>
+</body>
+</html>

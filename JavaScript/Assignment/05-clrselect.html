@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .clr{
+            height: 300px;
+            width: 300px;
+            border: 2px solid black;
+        }
+        button{
+            border-radius: 5px;
+            gap: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="select-color">
+        <form action="">
+            <div class="btn">
+                <button onclick="return greenclr()">Green Colour</button>
+                <button onclick="return blueclr()">Blue Colour</button>
+            </div>
+        </form>
+        <hr>
+        <div class="clr" id="green"></div>
+        <div class="clr" id="blue"></div>
+    </div>
+    <script>
+        function greenclr(){
+            let green = document.getElementById("green")
+            if(green.style.backgroundColor != "green"){
+                green.style.backgroundColor = ("green")
+                return false
+            }else{
+                green.style.backgroundColor = ("transparent")
+                return false
+            }
+        }
+        function blueclr(){
+            let blue = document.getElementById("blue")
+            if(blue.style.backgroundColor != "blue"){
+                blue.style.backgroundColor = ("blue")
+                return false
+            }else{
+                blue.style.backgroundColor = ("transparent")
+                return false
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    margin: 0px 80px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: transparent;
+    transition: 0.5s all cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+/* create css class for add in header */
+.header-fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #900feb;
+    transition: 0.5s all cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+header .header-p {
+    padding: 10px 0px;
+}
+
+header .header-flex {
+    display: flex;
+    align-items: baseline;
+}
+
+header .header-flex .logo {
+    flex: 1;
+}
+
+header .header-flex .logo h1 {
+    font-size: 40px;
+    color: white;
+}
+
+header .header-flex .navbar {
+    flex: 4;
+}
+
+header .header-flex .navbar ul {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+}
+
+header .header-flex .navbar ul li {
+    padding: 10px;
+}
+
+header .header-flex .navbar ul li a {
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+header .header-flex .theme {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: baseline;
+}
+
+header .header-flex .theme .togglebtn {
+    display: none;
+    position: relative;
+}
+
+header .header-flex .theme .tbtn {
+    height: 30px;
+    width: 30px;
+    background: transparent;
+    border: 2px solid white;
+    color: wheat;
+    font-size: 18px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.homepge img {
+    height: 750px;
+    width: 100%;
+}
+
+/* create css for add in html structure which is replace of navbar
+    remember these classes are not include in any structure it add using js.
+*/
+header .header-flex .nav-toggle {
+    background-color: coral;
+    position: absolute;
+    top: 76px;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
+header .header-flex .nav-toggle ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+header .header-flex .nav-toggle ul li {
+    padding: 0px;
+}
+
+header .header-flex .nav-toggle ul li a {
+    color: black;
+}
+
+/* =================================================================== */
+/* media query */
+@media (max-width:576px) {
+    .container {
+        margin: 0px 20px;
+    }
+
+    header .header-flex .navbar {
+        display: none;
+    }
+
+    header .header-flex .theme .togglebtn {
+        display: block;
+    }
+
+    header .header-flex .nav-toggle {
+        display: block;
+    }
+}
+
+@media (min-width:576px) {
+    .container {
+        margin: 0px 40px;
+    }
+
+    header .header-flex .navbar {
+        display: none;
+    }
+
+    header .header-flex .theme .togglebtn {
+        display: block;
+    }
+
+    header .header-flex .nav-toggle {
+        display: block;
+    }
+}
+
+/* min width 768 inherit from 576px */
+@media (min-width:992px) {
+    .container {
+        margin: 0px 60px;
+    }
+
+    header .header-flex .navbar {
+        display: block;
+    }
+
+    header .header-flex .theme .togglebtn {
+        display: none;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <header id="topHeader">
+        <div class="container header-p">
+            <div class="header-flex">
+                <div class="logo">
+                    <h1>
+                        <span class="fa-solid fa-school"></span>
+                        Logo
+                    </h1>
+                </div>
+                <div class="navbar">
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Service</a></li>
+                        <li><a href="">Contact</a></li>
+                        <li><a href="">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="theme">
+                    <div class="theme-i">
+                        <span class="fa-solid fa-moon"></span>
+                    </div>
+                    <div class="togglebtn">
+                        <button class="tbtn">
+                            <span class="fa-solid fa-bars"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="homepge">
+        <img src="b4.jpg" alt="">
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    
+    <script>
+        $(document).ready(function(){
+            $(".tbtn").click(function(){
+                $(".navbar").toggleClass("nav-toggle")
+            })
+        })
+    </script>
+</body>
+    
+</html>
+</body>
+
+</html>

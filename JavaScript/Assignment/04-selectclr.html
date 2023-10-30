@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Selector</title>
+    <style>
+        #clr{
+            height: 300px;
+            width: 300px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <form action="#">
+            Pick a color <input type="color" id="color">
+            <button type="submit" onclick="return colorSelected()">Set Colour</button>
+        <div id="clr">
+        </div>
+    </form>
+    </div>
+    <script>
+        function colorSelected(){
+            let cl = document.getElementById("color").value;
+            let box = document.getElementById("clr")
+            box.style.background = cl
+            return false
+        }
+    </script>
+</body>
+</html>

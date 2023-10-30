@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .formfield{
+            padding: 5px;
+        }
+        .msg{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form action="#">
+        <div class="formfield">
+            <label for="">Mobile Number</label>
+            <input type="text" value="" id="mobilenum" onblur="return checknum()" onkeyup="return checknum()">
+            <span class="msg"></span>
+        </div>
+        <div class="formfield">
+            <button type="submit" onclick="return checknum()">Click Here</button>
+        </div>
+    </form>
+    <script>
+        function checknum(){
+            let num = document.getElementById("mobilenum").value
+            let msg = document.querySelector(".msg")
+            let regEx = /^[0-9]*$/
+            let startEx = /^[6-9]/
+            if(num == "" || num==null)
+            {
+            msg.innerHTML="enter valid number"
+            return false
+            }else if(!(num.length<=10)) {
+                msg.innerHTML="Enter only 10 number"
+            }
+            else if (regEx.test(num) || !startEx.test(num)) {
+                msg.innerText = "Invalid Number"
+                return false
+            }
+            else{
+                msg.innerHTML = ""
+                return false
+            }
+        }    
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            text-transform: uppercase6 ;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <label for="">Add Value</label>
+        <input type="text" id="userimp">
+        <button class="btn">Add</button>
+    </div>    
+    <p id="para"></p>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".btn").click(function(){
+                $user = $("#userimp").val()
+                if($user == null || $user == ""){
+                    alert("enter value")
+                }
+                else{
+                    $("#para").text($user)
+                }
+            })
+        })
+    </script>
+</body>
+</html>

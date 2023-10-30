@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo list</title>
+    <style>
+        /* Include the padding and border in an element's total width and height */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        body {
+            height: 500px;
+            display: grid;
+            place-content: center;
+        }
+
+        .box {
+            height: auto;
+            width: 400px;
+            padding: 50px;
+            background-color: black;
+            color: white;
+            display: grid;
+            place-content: center;
+        }
+
+        .box .header {
+            padding: 20px 0px;
+        }
+
+        .box .header h2 {
+            padding: 10px 0px;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        .box .header button {
+            height: 32px;
+            width: 50px;
+            background-color: rgb(218, 154, 17);
+            border-radius: 5px;
+        }
+
+        .box ul {
+            padding: 0px 0px;
+        }
+
+        .box ul li {
+            padding: 6px 0px;
+            border-bottom: 1px solid rgb(182, 179, 179);
+            font-size: 19px;
+            letter-spacing: 1px;
+        }
+
+        #myUL {
+            background-color: white;
+            border-radius: 7px;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div id="myDIV" class="header">
+            <h2>My To Do List</h2>
+            <input type="text" id="myInput" placeholder="add new...">
+            <button onclick="return newElement()" class="addBtn">Add</button>
+        </div>
+
+        <table>
+            <ul id="myUL">
+                <li>Hit the gym</li>
+                <li>Pay bills</li>
+                <li>Meet George</li>
+                <li>Buy eggs</li>
+                <li>Read a book</li>
+                <li>Organize office</li>
+            </ul>
+        </table>
+    </div>
+    <script>
+
+        // Create a new list item when clicking on the "Add" button
+        function newElement() {
+            var li = document.createElement("li");
+            var inputValue = document.getElementById("myInput").value;
+            var t = document.createTextNode(inputValue);
+            li.appendChild(t);
+            if (inputValue === '') {
+                alert("You must write something!");
+            } else {
+                document.getElementById("myUL").appendChild(li);
+            }
+            document.getElementById("myInput").value = "";
+        }
+    </script>
+</body>
+
+</html>

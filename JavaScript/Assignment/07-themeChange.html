@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Change</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .flex{
+            display: flex;
+            gap: 30px;
+        }
+       
+        .div1 {
+            color: black;
+            background-color: white;
+            font-size: 100px;
+            height: 300px;
+            width: 300px;
+            border: 2px solid black;
+
+        }
+        .div2 {
+            color: white;
+            background-color: black;
+            font-size: 100px;
+            height: 300px;
+            width: 300px;
+            border: 2px solid black;
+
+        }
+        .div3 {
+            color: white;
+            background-color: black;
+            font-size: 100px;
+            height: 300px;
+            width: 300px;
+            border: 2px solid black;
+
+        }
+        .div1-toogle{
+            color: white;
+            background-color: black;
+        }
+        .div2-toogle{
+            color: black;
+            background-color: white;
+        }
+        .div3-toogle{
+            color: black;
+            background-color: white;
+            font-size: 100px;
+            height: 300px;
+            width: 300px;
+            border: 2px solid black;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="div3">
+        <span class="fa-solid fa-moon"></span>
+    </div>
+
+<script>
+
+    let mon = document.querySelector(".fa-moon")
+    let dd = document.querySelector(".div3")
+     mon.addEventListener("click",function(){
+       dd.classList.toggle("div3-toogle")
+        
+        if(dd.classList.contains("div3-toogle") == true ){
+             mon.classList.remove("fa-moon")
+             mon.classList.add("fa-sun")
+        }
+        else{
+            mon.classList.remove("fa-sun")
+             mon.classList.add("fa-moon")
+        }
+        
+     })
+</script>
+
+</body>
+</html>

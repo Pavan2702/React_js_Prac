@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">remove</button>
+    <button id="btn2">empty</button>
+    <p id="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, minima asperiores voluptatum magnam 
+        consectetur quos? Deserunt molestiae possimus sunt obcaecati iusto, dignissimos temporibus enim modi 
+        blanditiis dolor assumenda nobis ullam.</p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#btn1").click(function(){
+                    $("#para").remove()
+                })
+                $("#btn2").click(function(){
+                    $("#para").empty()
+                })
+            })
+        </script>
+</body>
+</html>

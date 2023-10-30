@@ -1,0 +1,192 @@
+Q.1-> What is JavaScript?
+Ans.->JavaScript is a scripting language that enables you to create dynamically updating content, control multimedia,
+      animate images, and pretty much everything else. (Okay, not everything, but it is amazing what you can achieve with
+      a few lines of JavaScript code.)
+
+Q.2-> What is the use of isNaN function?
+Ans.->The isNaN() function determines whether a value is NaN when converted to a number. Because coercion 
+      inside the isNaN() function can be surprising, you may alternatively want to use Number.isNaN().
+
+Q.3-> What is negative Infinity? 
+Ans.->The negative infinity in JavaScript is a constant value that is used to represent a value that
+      is the lowest available. This means that no other number is lesser than this value. It can be 
+      generated using a self-made function or by an arithmetic operation. 
+      Note: JavaScript shows the NEGATIVE_INFINITY value as -Infinity.
+
+Q.4-> Which company developed JavaScript? 
+Ans.->JavaScript was invented by Brendan Eich in 1995.
+      It was developed for Netscape 2, and became the ECMA-262 standard in 1997.
+
+Q.5-> What are undeclared and undefined variables? 
+Ans.->Undefined: It occurs when a variable has been declared but has not been assigned any value. 
+      Undefined is not a keyword. 
+      Undeclared: It occurs when we try to access any variable that is not initialized or declared 
+      earlier using the var or const keyword. If we use ‘typeof’ operator to get the value of an undeclared 
+      variable, we will face the runtime error with the return value as “undefined”. The scope of the undeclared 
+      variables is always global. 
+
+Q.6-> Write the code for adding new elements dynamically? 
+Ans.-><!DOCTYPE html>
+      <html>
+      <head>
+      <title>Adding HTML elements dynamically</title>
+      <style>
+            h1 {
+            color: green;
+            display: flex;
+            justify-content: center;
+            }
+            #mybutton {
+            display: block;
+            margin: 0 auto;
+            }
+            #innerdiv {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            }
+      </style>
+      </head>
+      <body>
+      <h1>
+            Welcome To Tutorials Point
+      </h1>
+      <div id="innerdiv"></div>
+      <button id="mybutton">
+            Click to Add HTML element
+      </button>
+      <script>
+            document.getElementById("mybutton").
+            addEventListener("click", function () {
+            document.getElementById("innerdiv").innerHTML += "<h3>Hello User</h3><p>Start your learning journey today.</p>";
+            });
+      </script>
+      </body>
+      </html>
+
+Q.7-> What is the difference between ViewState and SessionState? 
+Ans.->SessionState
+      Can be persisted in memory, which makes it a fast solution. 
+      Which means state cannot be shared in the Web Farm/Web Garden.
+      Can be persisted in a Database, useful for Web Farms / Web Gardens.
+      Is Cleared when the session dies - usually after 20min of inactivity.
+   .->ViewState
+      Is sent back and forth between the server and client, taking up bandwidth.
+      Has no expiration date.
+      Is useful in a Web Farm / Web Garden   
+
+Q.8-> What is === operator? 
+Ans.->The strict equality (===) operator checks whether its two operands are equal, returning a Boolean result. 
+      Unlike the equality operator, the strict equality operator always considers operands of different types to be 
+      different.
+
+Q.9-> How can the style/class of an element be changed? 
+Ans.->There are two common approaches that allow us to achieve this task.
+
+    (1)style.property
+      Approach 1: Changing CSS with the help of the style property:
+
+      Syntax: document.getElementById("id").style.property = new_style
+    (2)Changing the class itself
+      Syntax: document.getElementById("id").classList
+      You can use the below-mentioned methods to add classes, remove classes, and toggle between different classes respectively.
+
+      The add() method: It adds one or more classes.
+      The remove() method: It removes one or more classes.
+      The toggle() method: If the class does not exist it adds it and returns true. 
+      It removes the class and returns false. The second boolean argument forces the class to be added or removed.
+
+Q.10-> How to read and write a file using JavaScript? 
+Ans.->Write operation on a file
+      After the File System file is imported then, the writeFile() operation is called. 
+      The writeFile() method is used to write into the file in JavaScript. 
+      The syntax of this method is as follows :-writeFile(path,inputData,callBackFunction)
+
+      The writeFile() function accepts three parameters −
+
+      Path − The first parameter is the path of the file or the name of the file into which the input data 
+      is to be written.
+
+      If there is a file already, then the contents in the file are deleted and the input which is given by 
+      the user will get updated or if the file is not present, then the file with that will be created in the
+      given path and the input information is written into it.
+
+      inputData − The second parameter is the input data which contains the data to be written in the file that is 
+      opened.
+
+      callBackFuntion − The third parameter is the function which is the call back function which takes the error 
+      as the parameter and shows the fault if the write operation fails.
+      
+      Reading from the file
+      After the File System module is imported, the reading of the file in JavaScript can be done by using the 
+      readFile() function.
+
+      Syntax:-readFile(path, format, callBackFunc)
+      The readFile() function accepts three parameters including one optional parameter.
+
+      Path − The first parameter is the path of the test file from which the contents are to read. 
+      If the current location or directory is the same directory where the file which is to be opened and read 
+      is located then, only the file name has to be given.
+
+      Format − The second parameter is the optional parameter which is the format of the text file. The format 
+      can be ASCII, utf-8 etc.
+
+      CallBackFunc − The third parameter is the call back function which takes the error as the parameter and 
+      displays the fault is any raised due to the error.
+
+Q.11-> What are all the looping structures in JavaScript? 
+Ans.->The statements for loops provided in JavaScript are:
+
+      for statement
+      do...while statement
+      while statement
+      labeled statement
+      break statement
+      continue statement
+      for...in statement
+      for...of statement
+
+Q.12-> How can you convert the string of any base to an integer in JavaScript? 
+Ans.->Following is the syntax that a user may use to convert a string into an integer value (of any base)-
+      parseInt(string_value, base)
+
+Q.13-> What is the function of the delete operator? 
+Ans.->The delete operator removes a given property from an object. On successful deletion, it will return true, 
+      else false will be returned.
+
+Q.14-> What are all the types of Pop up boxes available in JavaScript? 
+Ans.->In Javascript, popup boxes are used to display the message or notification to the user. 
+      There are three types of pop-up boxes in JavaScript namely Alert Box, Confirm Box and Prompt Box.
+
+Q.15-> What is the use of Void (0)? 
+Ans.->void (0) is a JavaScript expression that evaluates to undefined. It's used to evaluate an expression 
+      without returning a value. It's also used to prevent the default action of an element. This operator 
+      is mostly used in the href attribute of an anchor tag. It's used to prevent the browser from following 
+      the link.
+
+Q.16-> How can a page be forced to load another page in JavaScript? 
+Ans.->We can use window.location property inside the script tag to forcefully load another page in Javascript. 
+      It is a reference to a Location object that is it represents the current location of the document. We can 
+      change the URL of a window by accessing it.
+
+Syntax:
+    <script>
+        window.location = <Path / URL>
+    </script>
+
+Q.17-> What are the disadvantages of using innerHTML in JavaScript?
+Ans.->Disadvantages of using innerHTML property in JavaScript:
+
+      The use of innerHTML very slow: The process of using innerHTML is much slower as its contents as slowly built, 
+      also already parsed contents and elements are also re-parsed which takes time.
+      Preserves event handlers attached to any DOM elements: The event handlers do not get attached to the new 
+      elements created by setting innerHTML automatically. To do so one has to keep track of the event handlers and 
+      attach it to new elements manually. This may cause a memory leak on some browsers.
+      Content is replaced everywhere: Either you add, append, delete or modify contents on a webpage using innerHTML, 
+      all contents is replaced, also all the DOM nodes inside that element are reparsed and recreated.
+      Appending to innerHTML is not supported: Usually, += is used for appending in JavaScript. But on appending to 
+      an Html tag using innerHTML, the whole tag is re-parsed.
+      Old content replaced issue: The old content is replaced even if object.innerHTML = object.innerHTML + ‘html’ is used instead of object.innerHTML += ‘html’. There is no way of appending without reparsing the whole innerHTML. Therefore, working with innerHTML becomes very slow. String concatenation just does not scale when dynamic DOM elements need to be created as the plus’ and quote openings and closings becomes difficult to track.
+      Can break the document: There is no proper validation provided by innerHTML, so any valid HTML code can be used. This may break the document of JavaScript. Even broken HTML can be used, which may lead to unexpected problems.
+      Can also be used for Cross-site Scripting(XSS): The fact that innerHTML can add text and elements to the webpage, can easily be used by malicious users to manipulate and display undesirable or harmful elements within other HTML element tags. Cross-site Scripting may also lead to loss, leak and change of sensitive information.

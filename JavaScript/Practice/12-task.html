@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- display min number from 2 numbers -->
+    <script>
+        let num1 = 10;
+        let num2 = 10;
+        let num3 = 30;
+
+        document.write("Number 1 is : " + num1)
+        document.write("<br>Number 2 is : " + num2)
+        document.write("<br>Number 3 is : " + num3)
+
+        if(num1 == num2 && num2 == num3 && num1 == num3){
+            document.write("<br>" + num1 + " & " + num2 + " & "  + num3 + "all are equal")
+        }
+        else if (num1 == num2) {
+            document.write("<br>" + num1 + " & " + num2 + " are same")
+        }
+        else if (num2 == num3) {
+            document.write("<br>" + num2 + " & " + num3 + " are same")
+        }
+        else if (num1 == num3) {
+            document.write("<br>" + num1 + " & " + num3 + " are same")
+        }
+        else if (num1 > num2) {
+            document.write("<br>" + num1 + " is max")
+        }
+        else if(num2 > num3){
+            document.write("<br>" + num2 + " is max")
+        } 
+        else if (num3 > num1) {
+            document.write("<br>" + num3 + " is max")
+        }
+        else{
+            document.write("<br> invalid number")
+
+        }
+    </script>
+</body>
+
+</html>

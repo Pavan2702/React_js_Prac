@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menubar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="15_leftMenubar.css">
+</head>
+<body>
+    <header class="topHeader">
+        <div class="container header-p">
+            <div class="header-flex">
+                <div class="theme">
+                    <div class="tooglebtn">
+                        <button class="tbtn">
+                            <span class="fa-solid fa-bars"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <section class="menubar">
+        <div class="closebtn">
+            <button class="cbtn">
+                <span class="fa-solid fa-close"></span>
+            </button>
+        </div>
+    <div class="navbar">
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Services</a></li>
+                        <li><a href="">Contact</a></li>
+                        <li><a href="">Pages</a></li>
+                        <li><a href="">Registration</a></li>
+                        <li><a href="">Login</a></li>
+
+                    </ul>
+                </div>
+    </section>
+
+    <section class="homepage">
+        <img src="22.avif" alt="">
+    </section>
+
+    <script>
+        // click on button
+
+    let tooglebtn= document.querySelector(".tbtn")
+
+// target
+    let nav = document.querySelector(".menubar")
+
+    let closetn = document.querySelector(".cbtn")
+
+ 
+    tooglebtn.addEventListener("click", function(){
+    nav.classList.toggle("menu-toggle")
+    }) 
+
+    closetn.addEventListener("click", function(){
+    nav.classList.toggle("menu-toggle")
+    })
+
+    </script>
+    
+</body>
+</html>

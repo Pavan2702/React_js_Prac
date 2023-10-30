@@ -1,0 +1,204 @@
+ Q 1.What is jQurey?
+
+Ans:jQuery is a lightweight, "write less, do more", JavaScript library.
+
+    The purpose of jQuery is to make it much easier to use JavaScript on your website.
+  
+    jQuery takes a lot of common tasks that require many lines of JavaScript code to accomplish, and wraps them into methods that you can call with a single line of code.
+
+    jQuery also simplifies a lot of the complicated things from JavaScript, like AJAX calls and DOM manipulation.
+
+    The jQuery library contains the following features:
+
+      HTML/DOM manipulation
+      CSS manipulation
+      HTML event methods
+      Effects and animations
+      AJAX
+      Utilities
+
+   There are lots of other JavaScript libraries out there, but jQuery is probably the most popular, and also the most extendable.
+
+   Many of the biggest companies on the Web use jQuery, such as:
+
+     (1) Google
+     (2) Microsoft
+     (3) IBM
+     (4) Netflix
+      
+     syntex:   $(document).ready(function(){
+                $("p").click(function(){
+                $(this).hide();
+                 });
+                  });
+
+==============================================================================================================================================================================================================================================================================================================================================
+
+Q 2.How To Apply CSS Using JQuery,How to Add class and Remove class in Jquery,JQurey Animation ?
+
+Ans: jQuery Manipulating CSS
+     jQuery has several methods for CSS manipulation. We will look at the following methods:
+
+           addClass() - Adds one or more classes to the selected elements
+
+           removeClass() - Removes one or more classes from the selected elements 
+ 
+           toggleClass() - Toggles between adding/removing classes from the selected elements
+
+            css() - Sets or returns the style attribute
+
+ ===>Example Stylesheet
+     The following stylesheet will be used for all the examples on this page:
+
+   .important {
+    font-weight: bold;
+    font-size: xx-large;
+     }
+
+   .blue {
+    color: blue;
+    }
+
+     (1)Addclass
+
+     ==>Example of ADD class:$("button").click(function(){
+                             $("h1, h2, p").addClass("blue");
+                             $("div").addClass("important");
+                             });
+
+
+     (2)Remove class 
+
+  ==> jQuery removeClass() Method
+      The following example shows how to remove a specific class attribute from different elements:
+
+      Example:
+         $("button").click(function(){
+         $("h1, h2, p").removeClass("blue");
+         });
+
+ 
+
+     (3)Toggle class
+
+  ===> jQuery toggleClass() Method
+        The following example will show how to use the jQuery toggleClass() method. This method toggles between adding/removing classes from the selected elements:
+
+       ExampleL:
+        $("button").click(function(){
+        $("h1, h2, p").toggleClass("blue");
+         });
+ 
+
+     (4)Jqurey Animation
+
+     jQuery Animations - The animate() Method
+     The jQuery animate() method is used to create custom animations.
+
+====> Syntax:
+
+      $(selector).animate({params},speed,callback);
+
+
+   The required params parameter defines the CSS properties to be animated.
+
+   The optional speed parameter specifies the duration of the effect. It can take the following values: "slow", "fast", or milliseconds.
+
+    The optional callback parameter is a function to be executed after the animation completes.
+
+    The following example demonstrates a simple use of the animate() method; it moves a <div> element to the right, until it has reached a left property of 250px:
+
+     (1).Example:
+
+    $("button").click(function(){
+      $("div").animate({left: '250px'});
+      }); 
+
+   (2).  $("button").click(function(){
+         $("div").animate({
+         left: '250px',
+         opacity: '0.5',
+         height: '150px',
+         width: '150px'
+         });
+            }); 
+
+==============================================================================================================================================================================================================================================================================================================================================
+
+Q 3.How to  create slider with animation?
+
+Ans:The optional speed parameter specifies the duration of the effect. It can take the following values: "slow", "fast", or milliseconds.
+
+    The optional callback parameter is a function to be executed after the sliding completes.
+
+    The following example demonstrates the slideDown() method:
+
+
+     Examples
+     jQuery slideDown()
+     Demonstrates the jQuery slideDown() method.
+
+      jQuery slideUp()
+      Demonstrates the jQuery slideUp() method.
+
+     jQuery slideToggle()
+     Demonstrates the jQuery slideToggle() method.
+
+   Example:1
+
+    $("#flip").click(function(){
+    $("#panel").slideDown();
+    });
+
+
+  **SLIDE UP***
+
+   jQuery slideUp() Method
+
+   Example:
+       Slide-up (hide) all <p> elements:
+
+      $("button").click(function(){  
+    $("p").slideUp();
+     });
+
+**SLIDE DOWN****
+
+   jQuery slideDown() Method
+
+   Example:
+    Slide-down (show) all hidden <p> elements:
+
+      $("button").click(function(){
+      $("p").slideDown();
+       });
+
+**SLIDE TOGGLE***
+
+   jQuery slideToggle() Method
+
+   Example:
+  Toggle between slideUp() and slideDown() for all <p> elements:
+
+   $("button").click(function(){
+  $("p").slideToggle();
+   });
+
+
+  The jQuery animate() method is used to create custom animations.
+
+   Syntax:
+
+     $(selector).animate({params},speed,callback);
+    The required params parameter defines the CSS properties to be animated.
+
+    The optional speed parameter specifies the duration of the effect. It can take the following values: "slow", "fast", or milliseconds.
+
+     The optional callback parameter is a function to be executed after the animation completes.
+
+    The following example demonstrates a simple use of the animate() method; it moves a <div> element to the right, until it has reached a left property of 250px:
+
+     Example:
+          $("button").click(function(){
+        $("div").animate({left: '250px'});
+        });

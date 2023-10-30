@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-image: linear-gradient(to right, green, rgb(149, 213, 149),green);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 17px;
+            font-weight: 500;
+        }
+        .form1{
+            border: 2px solid black;
+            height: auto;
+            width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+        }
+
+        h1{
+            text-align: center;
+        }
+        input[type="text"],
+        input[type="date"],
+        input[type="password"]{
+            height: 25px;
+            width: 300px;
+            padding: 3px;
+            font-size: 15px;
+        }
+        #exp{
+            height: 25px;
+            width: 300px;
+
+        }
+        #addr{
+            height: 75px;
+            width: 300px;
+        }
+        .row{
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            padding: 8px 0px;
+            text-align: center;
+        }
+        .col-1{
+            text-align: end;
+        }
+        .col{
+            margin: 0px 10px;
+        }
+        span{
+            color: red;
+        }
+        .passicon{
+            position: relative;
+        }
+
+        .passicon .icon{
+            position: absolute;
+            top: 9px;
+            right: 50px;
+        }
+        .btn{
+            text-align: center;
+            padding: 10px 0px;
+        }
+        button{
+            height: 35px;
+            width: 200px;
+            border-radius: 7px;
+            font-size: 15px;
+            font-weight: bold;
+            background-color: white;    
+        }
+        button:hover{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="form1">
+        <h1>Registration Form</h1>
+        <form action="#">
+            <div class="row">
+                <div class="col-1">
+                    <label for="">First Name</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="fname" onblur="return blurcheck(this,'msg1')" onkeyup="return nameCheck(this, 'msg1')">
+                </div>
+                <div class="col">
+                    <span class="msg" id="msg1"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <label for="">MIddle Name</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="mname" onblur="return blurcheck(this,'msg2')" onkeyup="return nameCheck(this, 'msg2')">
+                </div>
+                <div class="col">
+                    <span class="msg" id="msg2"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <label for="">Last Name</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="lname" onblur="return blurcheck(this,'msg3')" onkeyup="return nameCheck(this, 'msg3')">
+                </div>
+                <div class="col">
+                    <span class="msg" id="msg3"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <label for="">Address</label>
+                </div>
+                <div class="col">
+                    <textarea name="" id="addr" cols="30" rows="2" maxlength="300"
+                    placeholder="address must be in between 30 to 300 character"
+                    onblur="return blurCheck(this, 'msg4')" onkeyup="return addressLength()"></textarea>
+                </div>
+                <div class="col">
+                    <span class="msg" id="msg4"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <label for="">Birth-Date</label>
+                </div>
+                <div class="col">
+                    <input type="date" id="bdate" onblur="return blurcheck(this,'msg5')">
+                </div>
+                <div class="col">
+                    <span class="msg" id="msg5"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <label for="">Gender</label>
+                </div>
+                <div class="col">
+                    <input type="radio" id="male" name="gen" value="Male" onblur="return blurcheck(this,'msg6')">
+                    <label for="Male">Male</label>
+                    <input type="radio" id="female" name="gen" value="Feamle" onblur="return blurcheck(this,'msg6')">
+                    <label for="Female">Female</label>
+                </div>
+                <div class="col">
+                    <span class="msg" id="msg6"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <label for="">Experirnce</label>
+                </div>
+                <div class="col">
+                    <select name="" id="exp" onblur="return dropSelect(this, 'msg7') ">
+                        <option value="-1">--- select ---</option>
+                        <option value="">1 Year</option>
+                        <option value="">2 Year</option>
+                        <option value="">3 Year</option>
+                        <option value="">4 Year</option>
+                        <option value="">5 Year</option>
+                    </select>
+                </div>
+                    <div class="col">
+                        <span class="msg" id="msg7"></span>
+                    </div>
+            </div>
+                <div class="row">
+                    <div class="col-1">
+                        <label for="">Mobile No</label>
+                    </div>
+                    <div class="col">
+                        <input type="text" name="" id="mobile" onblur="return blurCheck(this,'msg8')" onkeyup="return MobileValidation()" maxlength="10">
+                    </div>
+                    <div class="col">
+                        <span class="msg" id="msg8"></span>
+                    </div>
+                </div>
+                <!-- Email id -->
+                <div class="row">
+                    <div class="col-1">
+                        <label for="">Email id</label>
+                    </div>
+                    <div class="col">
+                        <input type="text" name="" id="email" onblur="return blurCheck(this,'msg9')" onkeyup="return emailEx()">
+                    </div>
+                    <div class="col">
+                        <span class="msg" id="msg9"></span>
+                    </div>
+                </div>
+                <!-- Password -->
+                <div class="row">
+                    <div class="col-1">
+                        <label for="">Password</label>
+                    </div>
+                    <div class="col passicon">
+                        <input type="password" name="" id="pass" onblur="return blurCheck(this,'msg10')" placeholder="8 to 15 character" maxlength="15" onkeyup="return passwordEx()">
+                        <span class="fa-solid fa-eye icon" id="icon1" onclick="showpass()"></span>
+                    </div>
+                    <div class="col">
+                        <span class="msg" id="msg10"></span>
+                    </div>
+                </div>
+                <!-- Confirm Password -->
+                <div class="row">
+                    <div class="col-1">
+                        <label for="">Confirm Password</label>
+                    </div>
+                    <div class="col passicon">
+                        <input type="password" name="" id="cpass" onblur="return blurCheck(this,'msg11')"
+                            onkeyup="return passwordCompare()">
+                        <span class="fa-solid fa-eye icon" id="icon2" onclick="showcpass()"></span>
+                    </div>
+                    <div class="col">
+                        <span class="msg" id="msg11"></span>
+                    </div>
+                </div>
+            <div class="btn">
+                <button type="submit" onclick="return Formcheck()">Submit</button>
+            </div>
+        </form>
+        <script>
+            function Formcheck(){
+                let fname = document.getElementById("fname").value
+                let mname = document.getElementById("mname").value
+                let lname = document.getElementById("lname").value
+                let add = document.getElementById("Add").value
+                let bdate = document.getElementById("bdate").value
+                let male = document.getElementById("male").value
+                let female = document.getElementById("female").value    
+                let mno = document.getElementById("mobile").value;
+                let mail = document.getElementById("email").value;
+                let pass = document.getElementById("pass").value;
+                let city = document.getElementById("city").value;
+                if(fname == "" || fname == null){
+                    document.getElementById("msg1").innerHTML = "Enter Your First Name";
+                    return false
+                }else if(mname == "" || mname == null){
+                    document.getElementById("msg2").innerHTML = "Enter Your Middle Name";
+                    return false
+                }else if(lname == "" || lname == null){
+                    document.getElementById("msg3").innerHTML = "Enter Your Last Name";
+                    return false
+                }else if(add == "" || add == null){
+                    document.getElementById("msg4").innerHTML = "Enter Your Address";
+                    return false
+                }else if(bdate == "" || bdate == null){
+                    document.getElementById("msg5").innerHTML = "Enter Your Birth date";
+                    return false
+                }else if (male == false && female == false) {
+                    document.getElementById("msg6").innerText = "Select Gender"
+                    return false
+                }else if (city == "-1") {
+                    document.getElementById("msg7").innerText = "Select city"
+                    return false
+                }else if (mno == "" || mno == null) {
+                    document.getElementById("msg8").innerText = "Enter Mobile No"
+                    return false
+                }else if (mail == "" || mail == null) {
+                    document.getElementById("msg9").innerText = "Enter Email id"
+                    return false
+                }else if (pass == "" || pass == null) {
+                    document.getElementById("msg10").innerText = "Enter Password"
+                    return false
+                }else{
+                    document.getElementById("msg1").innerHTML = "";
+                    document.getElementById("msg2").innerHTML = "";
+                    document.getElementById("msg3").innerHTML = "";
+                    document.getElementById("msg4").innerHTML = "";
+                    document.getElementById("msg5").innerHTML = "";
+                    return false
+                }
+            }
+            function blurcheck(blank,msg){
+                if(blank.value == "" || blank.value == null){
+                    document.getElementById(msg).innerHTML = "Please Fill this field";
+                    return false
+                }
+            }
+            function dropSelect(blnk, msg) {
+                if (blnk.value == "-1") {
+                    document.getElementById(msg).innerText = "Select value"
+                    return false
+                } else {
+                    document.getElementById(msg).innerText = ""
+                    return false
+                }
+            }
+            function nameCheck(blnk, msg) {
+                let regEx = /^[a-zA-Z]*$/
+                if (!(regEx.test(blnk.value))) {
+                    document.getElementById(msg).innerText = "Invalid value";
+                    return false
+                } else if (blnk.value.length < 2) {
+                    document.getElementById(msg).innerText = "Enter more then 2 characters";
+                    return false
+                } else {
+                    document.getElementById(msg).innerText = "";
+                    return false
+                }
+            }
+            // address length
+            function addressLength() {
+                let adr = document.getElementById("addr").value;
+                if (adr.length < 30) {
+                    document.getElementById("msg4").innerText = "enter minimum 30 character"
+                    return false;
+                } else {
+                    document.getElementById("msg4").innerText = ""
+                    return false;
+                }
+            }
+            function MobileValidation() {
+                let mno = document.getElementById("mobile").value;
+                let regex = /^[0-9]*$/
+                let start = /^[6-9]/
+                if (!(regex.test(mno)) || (!(start.test(mno)))) {
+                    document.getElementById("msg8").innerText = "Invalid Number";
+                    return false
+                } else if (mno.length < 10) {
+                    document.getElementById("msg8").innerText = "Enter Proper number";
+                    return false
+                }
+                else {
+                    document.getElementById("msg8").innerText = "";
+                    return false
+                }
+            }
+            // email validation
+            function emailEx() {
+                let mail = document.getElementById("email").value;
+                let regEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3})+$/
+                if (regEx.test(mail)) {
+                    document.getElementById("msg9").innerText = "";
+                    return false
+                } else {
+                    document.getElementById("msg9").innerText = "Enter Proper Email";
+                    return false
+                }
+            }
+
+            // password expression
+            function passwordEx() {
+                let pass = document.getElementById("pass").value;
+                let passex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/
+                if (passex.test(pass)) {
+                    document.getElementById("msg10").innerText = "";
+                    return false
+                } else {
+                    document.getElementById("msg10").innerText = "Enter Strong Password";
+                    return false
+                }
+            }
+
+            // compare password
+            function passwordCompare() {
+                let pass = document.getElementById("pass").value;
+                let cpass = document.getElementById("cpass").value;
+                if (cpass != pass) {
+                    document.getElementById("msg11").innerText = "Password and Confirm password does not match";
+                    return false
+                } else {
+                    document.getElementById("msg11").innerText = "";
+                    return false
+                }
+            }
+
+            // show password
+            function showpass() {
+                let pass = document.getElementById("pass");
+                let icon = document.getElementById("icon1");
+                if (pass.type == "password" && icon.classList.contains("fa-eye") == true) {
+                    pass.type = "text";
+                    icon.classList.remove("fa-eye");
+                    icon.classList.add("fa-eye-slash")
+                } else {
+                    pass.type = "password";
+                    icon.classList.remove("fa-eye-slash");
+                    icon.classList.add("fa-eye")
+                }
+            }
+            function showcpass() {
+                let cpass = document.getElementById("cpass");
+                let icon = document.getElementById("icon2");
+                if (cpass.type == "password" && icon.classList.contains("fa-eye") == true) {
+                    cpass.type = "text"
+                    icon.classList.remove("fa-eye");
+                    icon.classList.add("fa-eye-slash")
+                } else {
+                    cpass.type = "password"
+                    icon.classList.remove("fa-eye-slash");
+                    icon.classList.add("fa-eye")
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>

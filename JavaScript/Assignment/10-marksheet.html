@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marksheet</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            height: auto;
+            width: 500px;
+            border: 2px solid black;
+            padding: 10px;
+            margin: 100px auto;
+        }
+        td{
+            padding: 10px;
+        }
+        input[type="text"]{
+            padding: 5px;
+            width: 200px;
+            font-size: 17px;   
+        }
+        .sp{
+          padding: 10px 40px;
+        }
+        button{
+            height: 25px;
+            width: 120px;
+        }
+        span{
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <form action="#">
+            <h1>Marksheet for Information Technology</h1>
+            <table>
+                <tr>
+                    <td>1. c language</td>
+                    <td class="sp"><input type="text" name="" id="cl"></td>
+                </tr>
+                <tr>
+                    <td>2. c ++</td>
+                    <td class="sp"><input type="text" name="" id="cpp"></td>
+                </tr>
+                <tr>
+                    <td>3. Database</td>
+                    <td class="sp"><input type="text" name="" id="db"></td>
+                </tr>
+                <tr>
+                    <td>4. HTML</td>
+                    <td class="sp"><input type="text" name="" id="html"></td>
+                </tr>
+                <tr>
+                    <td>5. CSS</td>
+                    <td class="sp"><input type="text" name="" id="css"></td>
+                </tr>
+                <tr>
+                    <td>6. php</td>
+                    <td class="sp"><input type="text" name="" id="php"></td>
+                </tr>
+                <tr>
+                    <td>7. Core Java</td>
+                    <td class="sp"><input type="text" name="" id="java"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="sp"><button type="submit" onclick="return marksheet()">Result</button></td>
+                </tr>
+                <tr>
+                    <td>Total is:  <span class="msg"></span> /350</td>
+                    <td class="sp">Percentage is : <span class="per"></span>%</td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <script>
+        function marksheet(){
+            let sub1 = document.getElementById("cl").value
+            let sub2 = document.getElementById("cpp").value
+            let sub3 = document.getElementById("db").value
+            let sub4 = document.getElementById("html").value
+            let sub5 = document.getElementById("css").value
+            let sub6 = document.getElementById("php").value
+            let sub7 = document.getElementById("java").value
+            let sum;
+            
+            let per;
+
+            sum = parseInt(sub1) + parseInt(sub2) + parseInt(sub3) + parseInt(sub4) + parseInt(sub5) + parseInt(sub6) + parseInt(sub7)
+            document.querySelector(".msg").innerText = sum
+            
+            per = sum / 350 * 100;
+            document.querySelector(".per").innerText = per
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .formfield{
+            padding: 5px;
+        }
+        .msg{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form action="#">
+        <div class="formfield">
+            <label for="">Enter Name</label>
+            <input type="text" name="" id="username" value="" onblur="return validname()" onkeyup="return checkvalid()">
+            <span class="msg"></span>
+        </div>
+        <div class="formfield">
+            <button type="submit" onclick="return validname()">Click Here</button>
+        </div>
+        <script>
+            function validname(){
+                let uname = document.getElementById("username").value;
+                let msg = document.querySelector(".msg")
+                if(uname == "" || umane == null){
+                    msg.innerHTML = "Enter Your Name"
+                    return false
+                }
+                else{
+                    msg.innerHTML = ""
+                    return false
+                }
+            }
+            function checkvalid(){
+                let uname = document.getElementById("username").value;
+                let msg = document.querySelector(".msg")
+                let spcl = /^[a-zA-Z]*$/
+                if(!(uname.match(spcl))){
+                    msg.innerHTML = "Enter Only Alphabates"
+                    return false
+                }
+                else if(uname.length < 2){
+                    msg.innerHTML = "Enter Valid Name"
+                    return false
+                } 
+                else{
+                    msg.innerHTML = ""
+                    return false
+                }
+            }
+        </script>
+    </form>
+</body>
+</html>

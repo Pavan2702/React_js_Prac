@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counting</title>
+    <style>
+        .main{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            place-content: center;
+            background-color: black;
+            margin: 1000px 0px;
+
+        }
+        .main #box1, #box2, #box3, #box4{
+            height: 200px;
+            width: 300px;
+            background-color: black;
+            color: white;
+            display: grid;
+            place-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div id="box3"></div>
+    <div id="box4"></div>
+    </div>
+        <script>
+            window.onscroll = function(){
+            let count = setInterval(counts)
+            let start = 100;
+            let start1 = 300;
+            let start2 = 700;
+            let start3 = 1200;
+
+            
+            function counts(){
+                let div = document.getElementById("box1")
+                let div1 = document.getElementById("box2")
+                let div2 = document.getElementById("box3")
+                let div3 = document.getElementById("box4")
+
+                div .innerHTML= "+" + ++start;
+                div1.innerHTML= "+" + ++start1;
+                div2.innerHTML= "+" + ++start2;
+                div3.innerHTML= "+" + ++start3;
+                 
+               
+                if(start==600){
+                    clearInterval(count)
+                }
+                else if(start1 == 900){
+                    clearInterval(count)
+                }
+                else if(start2 == 1500){
+                    clearInterval(count)
+                }
+                else if(start3 == 2100){
+                    clearInterval(count)
+                }
+            }
+        }
+
+        </script>
+</body>
+</html>
