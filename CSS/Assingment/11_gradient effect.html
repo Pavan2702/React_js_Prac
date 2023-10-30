@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        
+        .outer{
+            height: 700px;
+            width: 100%;
+            background:radial-gradient( white 200px,rgb(217, 104, 123) 500px, pink 800px);
+            position: relative;
+
+        }
+        .box{
+            position: absolute;
+            height: 300px;
+            width: 400px;
+            border: 2px solid black;
+            top: 200px;
+            margin-left: 550px;
+        }
+        .box h1{
+            text-align: center;
+        }
+        h1::after{
+            content:" ";
+
+        }
+        h1::before{
+            content: " ";
+
+        }
+        .box input{
+            height: 30px;
+            width: 80%;
+            margin: 15px 40px;
+            border-radius: 8px;
+        }
+        button{
+            height: 35px;
+            width: 120px;
+            color: white;
+            font-weight: 700;
+            font-size: 15px;
+            background-color: rgb(73, 7, 188);
+            border: 2px solid transparent;
+            margin-left: 250px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="box">
+            <h1>Login</h1>
+            <input type="text" name="" id="" placeholder="Enter Email"><br>
+            <input type="text" name="" id="" placeholder="Enter Password"><br>
+            <button type="submit">Login <i class="fa-solid fa-forward"></i></button>
+        </div>
+        </div>
+</body>
+</html>

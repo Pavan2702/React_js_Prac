@@ -1,0 +1,110 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <input id="from-date" type="text" class="form-control" placeholder="From">
+    <input id="to-date" type="text" class="form-control" placeholder="To">
+    <button id="btn">Calculate</button>
+    <input id="total-count" class="form-control" placeholder="Total no. of Years, Months and Days.">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
+    
+    <script>
+        
+    $(function () {
+
+            // create the from date
+            $('#from-date').datepicker({
+                autoclose: true,
+                format: 'dd-mm-yyyy',
+            }).on('changeDate', function (ev) {
+                ConfigureToDate();
+            });
+
+
+            $('#to-date').datepicker({
+                autoclose: true,
+                format: 'dd-mm-yyyy',
+                startDate: $('#from-date').val()
+            });
+
+            // Set the min date on page load
+            ConfigureToDate();
+
+            // Resets the min date of the return date
+            function ConfigureToDate() {
+                $('#to-date').val("").datepicker("update");
+                $('#to-date').datepicker('setStartDate', $('#from-date').val());
+            }
+        }); 
+    </script>
+
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Difference between dates in days</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    
+</head>
+
+<body>
+    <h1>GeeksforGeeks</h1>
+    <h3>Calculating the difference between the 2 dates</h3>
+<form action="#">
+    <p>Enter Date 1 :
+        <input type="text" id="date1">
+    </p>
+    <p>Enter Date 2 :
+        <input type="text" id="date2">
+    </p>
+    <button id="sub" onclick="func()" type="button"> Submit
+    </button>
+    <h3 id="ans">Difference in days</h3>
+</form>
+    <script src="https://code.jquery.com/jquery-1.10.2.js">
+    </script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js">
+    </script>
+    <script>
+        $(function () {
+            $("#date1").datepicker();
+            var date1 = $("#date1")
+        });
+        $(function () {
+            $("#date2").datepicker();
+            var date2 = $("#date2")
+        });
+
+        function func() {
+            date1 = new Date(date1.value);
+            date2 = new Date(date2.value);
+            var milli_secs = date1.getTime() - date2.getTime();
+
+            // Convert the milli seconds to Days
+            var days = milli_secs / (1000 * 3600 * 24);
+            document.getElementById("ans").innerHTML =
+                Math.round(Math.abs(days));
+        }
+    </script>
+</body>
+
+</html>

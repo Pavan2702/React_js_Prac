@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .outer{
+            height: 900px;
+            width: 100%;
+            margin: auto;
+            background: linear-gradient(to right, rgb(5, 188, 5) 400px, rgb(142, 233, 153) 700px, rgb(5, 188, 5) 1000px);   
+        }
+        .marg{
+            margin-left: 20px;
+        }
+        .pad{
+            padding: 60px;
+        }
+        .form{
+            margin: auto;
+            height: 800px;
+            width: 60%;
+            border: 2px solid black;
+            background-color: white;
+        }
+        .form h1{
+            text-align: center;
+            padding: 20px;
+            font-size: 50px;
+        }
+        .form input, textarea, select{
+            border-radius: 5px;
+            border: 1px solid black;
+            
+        }
+        .form label{
+            padding-left: 90px;
+            text-align: right;
+            font-size: 17px;
+        }
+        .form .d{
+            text-align: right;
+        }
+        .form .in1{
+            margin-left: 70px;
+            height: 30px;
+            width: 50%;
+            margin-bottom: 10px; 
+        }
+        .form .in3{
+            margin-left: 73px;
+            height: 30px;
+            width: 50%;
+            margin-bottom: 10px; 
+        }
+        .form .in2{
+            margin-left: 53px;
+            height: 30px;
+            width: 50%;
+            margin-bottom: 10px; 
+        }
+        .form .in4{
+            margin-left: 240px;
+            width: 45%;
+            margin-bottom: 10px;
+        }
+        .form .in5{
+            margin-left: 57px;
+            height: 30px;
+            width: 50%;
+            margin-bottom: 10px; 
+        }.form .in6{
+            margin-left: 95px;
+            margin-bottom: 10px; 
+        }
+        .form .in8{
+            margin-left: 70px;
+            height: 30px;
+            width: 50%;
+            margin-bottom: 10px; 
+        }
+        .form .in9{
+            margin-left: 72px;
+            height: 30px;
+            width: 50%;
+            margin-bottom: 10px; 
+        }
+        .form .in10{
+            margin-left: 87px;
+            height: 30px;
+            width: 50%;
+            margin-bottom: 10px; 
+        }
+        .form .in11{
+            margin-left: 38px;
+            height: 30px;
+            width: 50%;
+            margin-bottom: 10px; 
+        }
+        .form .in12{
+            margin-left: 240px;
+            margin-bottom: 30px; 
+        }
+        .form button{
+            margin-left: 170px;
+            height: 35px;
+            width: 40%;
+            border: 2px solid transparent;
+            background-color: blue;
+            color: white;
+            border-radius: 10px;
+            font-weight: 700;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="marg">
+            <div class="pad">
+                <div class="form">
+             <form action="">
+            <h1>Registration for Job</h1>
+            <label for="">First Name</label>
+            <input class="in1" type="text" name="" id="" placeholder=" Enter First name"><br>
+            <label for="">Middle Name</label>
+            <input class="in2" type="text" name="" id="" placeholder=" Enter Middle name"><br>
+            <label for="">Last Name</label>
+            <input class="in3" type="text" name="" id="" placeholder=" Enter Last name"><br>
+            <label for="">Address</label><br>
+            <textarea class="in4" name="" id="" cols="40" rows="10" placeholder=" Enter Address"></textarea><br>
+            <label for="">Date of Birth</label>
+            <input class="in5" type="date" name="" id=""><br>
+            <label for="">Gender</label>
+            <input class="in6" type="radio" name="r1" id=""> Male
+            <input type="radio" name="r1" id=""> Female <br>
+             <label for="">Experiance</label>
+             <select class="in8" name="" id="">
+                <option value="0">---select---</option>
+                <option value="1">fresher's</option>
+                <option value="2">1 year</option>
+                <option value="3">2 year</option>
+                <option value="4">5 year</option>
+             </select><br>
+             <label for="">Mobile No</label>
+             <input class="in9" type="number" name="" id="" placeholder=" Enter Mobile No"><br>
+             <label for="">Email id</label>
+             <input class="in10" type="email" name="" id="" placeholder=" Enter email"><br>
+             <label for="">create password</label>
+             <input class="in11" type="password" name="" id="" placeholder=" Enter Password"><br>
+             <input class="in12" type="checkbox" name="" id="">Show Password <br>   
+             <button type="submit">Register</button>
+             </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

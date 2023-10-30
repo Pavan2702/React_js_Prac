@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="box h-auto w-50 p-2 m-auto mt-5 border border-3 border-primary">
+        <div class="container">
+            <form action="#" method="get">
+
+                <div class="row g-2">
+                    <div class="col-12">
+                        <label for="">Select Date 1</label>
+                        <input type="date" id="date1">
+                    </div>
+                    <div class="col-12">
+                        <label for="">Select Date 1</label>
+                        <input type="date" id="date2">
+                    </div>
+                    <div class="col-12">
+                        <button id="btn" class="btn btn-primary">Calculate</button>
+                    </div>
+                </div>
+                <div class="row g-2 pt-3">
+                    <div class="col-12 bg-primary">
+                        <p class="h3 para">Date Interval Between </p>
+                        <h3 id="day"></h3>
+                        <h3 id="week"></h3>
+                        <h3 id="weekDay"></h3>
+                        <h3 id="month"></h3>
+                        <h3 id="month1"></h3>
+                        <h3 id="year"></h3>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                $date1 = new Date($("#date1").val())
+                $date2 = new Date($("#date2").val())
+
+                $user = $("#date1").val()
+                $user1 = $("#date2").val()
+                
+                if($user == null || $user == "" && $user1 == null || $user1 == ""){
+                    alert("enter value")
+                }
+                else{
+                    $(".para").html("Date Interval Between <br>" +  $user + " and " + $user1)
+                }
+
+                $days = ($date2 - $date1) / (1000 * 3600 * 24)
+                $days = $days + 1
+                $("#day").text("Days are:- " + $days)
+                $week = $days / 7
+
+                $weeks = $week - 1
+                $Weekdays = $days % 7;
+                if ($week % 2 == 0) {
+                    $("#week").text("weeks are:- " + $week)
+                }
+                else if ($week % 2 !== 0) {
+                    $("#week").html("weeks are:- " + (Math.round(Math.abs($weeks))) + "days are:- " + $Weekdays)
+                }
+                $month = $days / 30;
+                $Monthdays = $days % 30;
+                $month1 = $days / 31
+                $Month1days = $days % 31;
+                if ($month % 2 == 0) {
+                    $("#month").text("month is:- " + $month)
+                }
+                else if ($month % 2 !== 0) {
+                    $("#month").html("month is:- " + (Math.floor(Math.abs($month))) + " days are:- " + $Monthdays)
+                }
+                else if ($month1 % 2 == 0) {
+                    $("#month1").text("month is:- " + $month1)
+                }
+                else if ($month1 % 2 !== 0) {
+                    $("#month1").html("month is:-" + (Math.floor(Math.abs($month1))) + " days are:- " + $Month1days)
+                }
+                $year = $days / 365;
+                $Monthyear = $days % 365 / 30
+                $Yeardays = $days % 365 % 30
+                if ($year % 2 == 0) {
+                    $("#year").text("year is:- " + $year)
+                }
+                else if ($year % 2 !== 0) {
+                    $("#year").html("year is:- " + (Math.floor(Math.abs($year))) + " Month are:- " + (Math.round(Math.abs($Monthyear))) + " days are:- " + $Yeardays)
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

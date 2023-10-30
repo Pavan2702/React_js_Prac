@@ -1,0 +1,31 @@
+Q-1 What is software? What is software engineering?
+-> "Software refers to the programs, data, and instructions that are used by computers to perform specific tasks. In other words, software is the set of instructions that tell a computer what to do."
+
+"Software engineering, on the other hand, is the process of designing, developing, testing, and maintaining software. It is a disciplined approach to developing high-quality software that meets the needs of its users. Software engineering involves the application of engineering principles and methods to the software development process."
+
+Q-2 Explain types of software.
+-> There are two main types of software:
+
+1. System software: It is designed to control and manage the hardware components of a computer system. Some examples of system software include operating systems, device drivers, firmware, and utility programs.
+
+2. Application software: It is designed to perform specific tasks or functions for users. Some examples of application software include word processors, spreadsheet programs, graphic design software, and video editing software.
+
+Application software can further be divided into two types:
+
+a. Proprietary software: It is owned by a company or an individual and cannot be modified or shared without permission. It usually requires a license fee to use it.
+
+b. Open-source software: It is a type of software that is available for free and its source code can be accessed and modified by anyone. It usually has a community of developers who contribute to its development and maintenance.
+
+Q-3  What is SDLC? Explain each phase of SDLC.
+-> The Software Development Life Cycle (SDLC) refers to a methodology with clearly defined processes for creating high-quality software.
+1. Planning: This is the initial stage where the requirements are gathered and analyzed. The feasibility study is done to determine if the project is worth the investment, and the project plan is created.
+
+2. Analysis: In this stage, the requirements gathered in the planning phase are analyzed to determine the scope of the project. A requirements document is created, which outlines the functional and non-functional requirements of the software.
+
+3. Design: In this phase, the software's architecture and detailed design are created. The design document specifies how the software will be built, including the database structure, software modules, and other specifications.
+
+4. Development: The actual coding of the software is done in this phase. The development team uses the design document to write the code for the software application.
+
+5. Testing: In this phase, the software is tested to ensure that it meets the requirements outlined in the planning and analysis stages. This is done through various testing methods such as unit testing, integration testing, system testing, and user acceptance testing.
+
+6. Maintenance: This is the final phase of the SDLC, where the software is maintained and updated to ensure that it continues to meet the changing needs of the business and the end-users. It includes ongoing support, bug fixing, and enhancements

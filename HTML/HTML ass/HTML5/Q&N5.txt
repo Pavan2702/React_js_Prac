@@ -1,0 +1,53 @@
+Q.1 What are the new tags added in HTML5? 
+Ans.<article> Used to specify a portion of a page that includes an independent piece of content in a document, section, or website.
+    <aside>	Used to indicate that the specified article is somehow related to the rest of the document but is kept aside. It is mainly used for extra information in main content like links,               	      sidebars, and ads.
+    <data>	Used to facilitate a machine-readable version of the data.
+    <details> Used to define any additional information on a topic or a summary.
+    <dialog> Used to include a dialog box in webpage.
+    <figcaption> Used to specify a caption for a <figure> element.
+    <figure>	Used to indicate content like photos, diagrams, categorizations, maps, images, code articles, etc.
+    <footer>	Used to specify a footer for a section Information like copyright, and author name are mentioned here.
+    <header>	Used to specify a header for a section.
+    <main>	Used to specify the main content or important section of a document.
+    <mark>	Used to mark or highlight the specified content with a background color.
+    <menuitem>	Used to specify a command that the user can invoke from a popup menu.
+    <meter>	Used to determine a scalar/fractional value within a given range.
+    <nav>	Used to specify a navigation link in a webpage.
+    <rp>	Used to include parentheses in a ruby character.
+    <rt>	Used to indicate the pronunciation of ruby characters.
+    <ruby>	Used to specify a ruby annotation along with <rp> and <rt>. Ex: Japanese characters
+    <section>	Used to define a specific section in a webpage.
+    <summary>	Used as a subpart of the <details> tag which displays hidden text on clicking the heading.
+    <time>	It displays human-readable date/time within a webpage.
+
+Q.2 How to embed audio and video in a webpage?
+Ans.In HTML5, we can embed audio files using the <audio> tag.
+    <audio src="name.ogg" controls></audio>
+    In HTML5, we can embed audio files using the <audio> tag.
+    <audio src="name.ogg" controls></audio>
+
+Q.3 Semantic element in HTML5? 
+Ans.<article>
+    <aside>
+    <details>
+    <figcaption>
+    <figure>
+    <footer>
+    <header>
+    <main>
+    <mark>
+    <nav>
+    <section>
+    <summary>
+    <time>
+
+Q.4 Canvas and SVG tags 
+Ans.The HTML <canvas> element is used to draw graphics, on the fly, via JavaScript.The <canvas> element is only a container for graphics. You must use JavaScript to actually draw the graphics.Canvas has several methods for drawing paths, boxes, circles, text, and adding images
+
+   SVG stands for Scalable Vector Graphics
+   SVG is used to define graphics for the Web
+   SVG is a W3C recommendation
+   
+   The HTML <svg> Element
+   The HTML <svg> element is a container for SVG graphics.
+   SVG has several methods for drawing paths, boxes, circles, text, and graphic images.

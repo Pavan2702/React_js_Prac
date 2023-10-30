@@ -1,0 +1,96 @@
+Q.1  What are the advantages of Bootstrap ?
+Ans. A faster and easier way for Web-Development.
+     It designs responsive web pages for mobile devices too.
+     We can easily create responsive websites.
+     We can quickly create a multi-column layout with pre-defined classes.
+     We can quickly create different types of form layouts.
+     It is used to create different variations of the navigation bar.
+     It is used to create dynamic tabs to manage a large amount of content.
+
+Q.2  What is a Bootstrap Container, and how does it work? 
+Ans. Bootstrap Containers are the most basic layout element in Bootstrap. Bootstrap Containers are very essential and basic building blocks of bootstrap that wrap a page’s content. 
+     It’s responsible for setting and aligning content within it according to viewport or given device. Containers are defined within the container class (.container). 
+     In other words, we can say that containers are established the width for the layout to give the content. Elements and content are added within the container.
+
+Q.3  What are the default Bootstrap text settings? 
+Ans. Font family: The default font family in Bootstrap is “Helvetica Neue”, Helvetica, Arial, sans-serif.
+     Font size: The default font size for the body element in Bootstrap is 16px.
+     Font weight: The default font weight for headings in Bootstrap is bold.
+     Line height: The default line height for text in Bootstrap is 1.5.
+     Text color: The default text color in Bootstrap is black (#000).
+     Text alignment: The default text alignment in Bootstrap is left-aligned.
+     Text decoration: The default text decoration in Bootstrap is none.
+     Text transform: The default text transform in Bootstrap is none.
+
+Q.4  What do you know about the Bootstrap Grid System? 
+Ans. In the previous article we had learnt about Bootstrap and its Installation.However, from      this article, we are going to start with learning Bootstrap. We are going to talk about the Bootstrap Grid System in this article.
+
+Grid System: Bootstrap Grid System allows up to 12 columns across the page. You can use each of them individually or merge them together for wider columns. You can use all combinations of values summing up to 12. You can use 12 columns each of width 1, or use 4 columns each of width 3 or any other combination.
+
+Q.5  What is the difference between Bootstrap 4 and Bootstrap 5?
+Ans. 	BASIS OF			BOOTSTRAP 4			BOOTSTRAP 5
+	Grid System	It has 5 tier (xs, sm, md, lg, xl).		It has 6 tier (xs, sm, md, lg, xl, xxl).
+	
+	Color		It has limited colors.				Extra colors added with the looks, 
+									A card improved color palette. there are various shades available to choose.
+	
+	Jquery		It has jquery and all related plugins.		Jquery is removed and switched to vanilla JS with some working plugins
+	
+	Internet 	Bootstrap 4 supports both IE 10 and 11.		Bootstrap 5 doesn’t support IE 10 and 11.
+	Explorer	
+	
+	Form elements	Radio buttons, checkboxes have different	 The look of form elements will not change, on different OS or browser.
+			look in different OS and browsers. 		The forms can be customized and form controls can be added, they would not depend on browser.
+			The form uses whatever default browsers provide.
+	
+	Utilities API	We cannot modify utilities in bootstrap 4	Bootstrap 5 gave freedom to modify and also create our own utility
+	
+	Gutter		We use .glutter with fontsize in px		We use .g* with fontsize in rem
+	
+	Vertical 	Columns can be positioned relative		Columns cannot be positioned relative
+	Classes	
+	
+	Bootstrap 	Bootstrap 4 doesn’t have its own SVG icons,	Bootstrap 5 have its own SVG icons
+	Icons		we have to use font-awesome for icons.	
+		
+	Jumbotron	It supports.					It doesn’t support jumbotron.
+	
+	Card deck	The card deck is used to create a set 		Card deck class in removed in bootstrap
+			of cards with equal width and height.	 
+	
+	Navbar		We have inline-block property and we will 	Inline-block property is removed and we will get black
+			get white dropdown as default for dropdown-	dropdown as 	default for dropdown-menu-dark class.
+			menu-dark class.	 
+	
+Q.5  What is a Button Group, and what is the class for a basic Button Group ?
+Ans, Bootstrap 5 is the latest major release by Bootstrap in which they have revamped the UI and made various changes. 
+     Button group is a component provided by Bootstrap 5 which helps to combine the buttons in a series in a single line. All types of buttons are supported by it.
+
+     Types: Following are the nine types of buttons available in Bootstrap 5:
+
+     btn-primary
+     btn-secondary
+     btn-success
+     btn-danger
+     btn-warning
+     btn-info
+     btn-light
+     btn-dark
+     btn-link
+
+Q.6  How can you use Bootstrap to make thumbnails? 
+Ans. Step 1: Include Bootstrap and jQuery CDN into the <head> tag before all other stylesheets to load our CSS.
+     Step 2: Add <div> tag in the HTML body with class row. In that <div> create four div sections to create four images.
+     Step 3: Add “col-sm-6” and “col-md-3” to four div sections which creates webpage responsive.
+     Step 4: Add <a> tag with class value thumbnail to define the link of the image in the next line. 
+
+Q.7  In Bootstrap 4, what is flexbox? 
+Ans. Use flex classes to control the layout of Bootstrap 4 components.
+     The biggest difference between Bootstrap 3 and Bootstrap 4 is that Bootstrap 4 now uses flexbox, instead of floats, to handle the layout.
+     The Flexible Box Layout Module, makes it easier to design flexible responsive layout structure without using float or positioning.
+
+Q.8  How can one create an alert in Bootstrap?
+Ans. Alerts are created with the .alert class, followed by one of the four contextual classes .alert-success, .alert-info, .alert-warning or .alert-danger:
+
+Q.9  What is a bootstrap card and how would you create one ?
+Ans. A card in Bootstrap 4 is a bordered box with some padding around its content. It includes options for headers, footers, content, colors, etc.

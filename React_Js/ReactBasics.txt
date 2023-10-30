@@ -1,0 +1,58 @@
+Q-1 What is React Js? 
+Ans.ReactJS is an open-source JavaScript library used to create user interfaces in a declarative and efficient way. It is a component-based front-end library responsible only for the 
+    view layer of a Model View Controller(MVC) architecture. React is used to create modular user interfaces and promotes the development of reusable UI components that display dynamic data.
+
+Q-2 What is NPM in React Js? 
+Ans.NPM – or "Node Package Manager" – is the default package manager for JavaScript's runtime Node.js.
+    It's also known as "Ninja Pumpkin Mutants", "Nonprofit Pizza Makers", and a host of other random names that you can explore and probably contribute to over at npm-expansions.
+
+Q-3 What is Role of Node Js in react Js?
+Ans.1. High server load: Using Nodejs with React makes sense when your web application needs handling of multiple requests and maintaining server load balance. 
+    2. Real-time data: If your application’s core is based on Real-time Data-Intensive management or Data Streaming, using Nodejs is highly advisable for continued server connection. 
+    3. JSON APIs: Building JSON APIs for your application is very efficient with Nodejs due to high code reusability and easy code sharing in Reactjs.
+    4. Single Page Applications (SPA): Developing Single Page Applications in React while using Node to build a lightweight backend model for asynchronous data loading through 
+       callback functions.
+    5. MERN stack: Nodejs can also be used with React with MERN (MongoDB, Express, React, and Nodejs) stack.
+    6.Scalability: Node and React enables developers to build multi-device, responsive, data-driven web apps with scalability for large projects, ensuring optimal website performance 
+      across various devices.
+    7. Fast Development: Using React and Node for web app development yields high ROI, saving time and money. These technologies excel in creating fast and easy-to-maintain websites.
+    8. Single Language for Front-end and Back-end: Using Node and React together, developers avoid the need to learn complex back-end languages like Python or Ruby. They can use Node 
+       for server-side development and React for front-end coding seamlessly, saving resources, money, and time.
+    9. Organized Process: The combo of React and Node streamlines web development. These scalable, effective, and fast technologies work together to create high-functioning websites.
+
+Q-4 What is CLI command In React Js?
+Ans.A command-line interface is a way that you can interact with a computer through text. It works by you typing in special commands in a command prompt.
+    This was the way developers interacted with computers before Graphical User Interfaces (GUI) were created. Command-line interfaces are still useful for automating tasks and in 
+    software development generally.
+
+Q-5 What is Components in React Js? 
+Ans.Components are independent and reusable bits of code. They serve the same purpose as JavaScript functions, but work in isolation and return HTML.
+    Components come in two types, Class components and Function components, in this tutorial we will concentrate on Function components.
+
+Q-6 What is Header and Content Components in React Js? 
+Ans.The Header is an important element of a website’s design. It’s the first impression of the website. It provides useful links to other areas of the website that the user may want 
+    to visit. In this article, we will create a functioning Header using React.js and Material UI.     
+    Approach: First we will create a basic react app using some installations. We will make our new Header Component with some styling using Material-UI. To create a Header, we will 
+    use App Bar from Material UI which will provide screen titles, navigation, and actions. Also, we will need a ToolBar inside which will set the properties to child components 
+    making them all horizontally aligned. Then we will make some changes to our default Home page i.e. App.js file by importing the newly created Header into it. Now Let’s start creating   
+
+Q-7 How to install React Js on Windows, linux Operating System? How to install NPM and How to check version of NPM?
+Ans.So before installing react, we’ll require to install Node js. Node js is a dependency manager that provides dependency. It is required to develop any React js application. For
+   downloading, just go to the official website of Node.js and download the latest version from there.
+
+   -> Download Node.js
+   
+   -> Install Node.js in Windows
+
+   -> You can check whether node.js has installed successfully or not. Just open the command prompt and simply enter the command. node -v
+
+Q-8 How to check version of React Js? 
+Ans.We can easily check the React version by using the command mentioned below on our command line.
+    npm view react version
+
+Q-9 • How to change in components of React Js? 
+Ans.->Modify Component State
+    ->Pass Props
+    ->Reorganize Component Structure
+    ->Conditional Rendering
+    ->Use Hooks :-If you are working with functional components, you can use hooks like useState and useEffect to manage state and perform side effects, respectively.
