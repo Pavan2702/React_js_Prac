@@ -1,0 +1,19 @@
+#container{
+    width: 100%;
+    height: 700px;
+    display: flex;
+    flex-direction: column ;
+    align-items: center;
+    justify-content: center;
+    background:linear-gradient(90deg, #0062ff, #da61ff)
+}
+.index{
+    font-size: 50px;
+}
+.marq{
+    font-size: 20px;
+}
+.mtag{
+    width: 100%;
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
