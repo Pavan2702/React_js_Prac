@@ -1,5 +1,5 @@
 import React from 'react'
-import product from "../../../../ProductModule/product.json"
+// import product from "../../../../ProductModule/product.json"
 import { Table } from "reactstrap"
     
 export default function ProductYable() {
