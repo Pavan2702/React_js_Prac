@@ -7,7 +7,6 @@ export default class Header extends Component {
             <div className="header">
                 <div className="navigation container">
                     <div className="logo">
-                    {/* <FlipHorizontal2 className='font-icon' /> */}
                     <img src={reactLogo}  alt="" />
                         <h1 className='text-light fs-3 m-3'>Superprops</h1>
                     </div>

@@ -14,7 +14,7 @@ export default function MultipleInput() {
     const [updateMode, setUpdateMode] = useState(false);
     const [updateIndex, setUpdateIndex] = useState(null);
     const [searchText, setSearchText] = useState('');
-    const [passIndex, setPassIndex] = useState(false);
+    const [passIndex, setPassIndex] = useState([false]);
 
     useEffect(() => {
         const jsonStr = localStorage?.getItem('dataArray');
@@ -51,9 +51,12 @@ export default function MultipleInput() {
         }
     }
 
-    function showPassword(index) {
-        if (index === updateIndex) {
-            setPassIndex(!passIndex);
+    function showPassword([index]) {
+        console.log("🚀 ~ file: MultipleInput.jsx:56 ~ showPassword ~ index:", index)
+
+        setPassIndex([index])
+        if(index.includes(passIndex)){
+            setPassIndex(index)
         }
     }
 
@@ -179,19 +182,19 @@ export default function MultipleInput() {
                                     <td>{e.surname}</td>
                                     <td>{e.age}</td>
                                     <td>{e.email}</td>
-                                    <td>{passIndex ? e.password : '**'}</td>
+                                    <td>{i === passIndex ? e.password : '********'}</td>
                                     <td>
-                                        {!passIndex ? (
+                                        {/* {!passIndex ? ( */}
                                             <Eye
                                                 role="button"
-                                                onClick={() => showPassword(i)}
+                                                onClick={() => showPassword([i])}
                                             />
-                                        ) : (
-                                            <EyeOff
-                                                role="button"
-                                                onClick={() => setPassIndex(!                               passIndex)}
-                                            />
-                                        )}
+                                        {/*   ) : (
+                                             <EyeOff
+                                                 role="button"
+                                                 onClick={() => setPassIndex(!passIndex)}
+                                             />
+                                        )} */}
                                     </td>
                                     <td>
                                         <Trash2
