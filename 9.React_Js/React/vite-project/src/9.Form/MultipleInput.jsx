@@ -14,7 +14,7 @@ export default function MultipleInput() {
     const [updateMode, setUpdateMode] = useState(false);
     const [updateIndex, setUpdateIndex] = useState(null);
     const [searchText, setSearchText] = useState('');
-    const [passIndex, setPassIndex] = useState([false]);
+    const [passIndex, setPassIndex] = useState([]);
 
     useEffect(() => {
         const jsonStr = localStorage?.getItem('dataArray');
@@ -51,13 +51,8 @@ export default function MultipleInput() {
         }
     }
 
-    function showPassword([index]) {
-        console.log("🚀 ~ file: MultipleInput.jsx:56 ~ showPassword ~ index:", index)
-
-        setPassIndex([index])
-        if(index.includes(passIndex)){
-            setPassIndex(index)
-        }
+    function showPassword(index) {
+        setPassIndex([...passIndex,index])
     }
 
     function deleteItem(index) {
@@ -182,12 +177,12 @@ export default function MultipleInput() {
                                     <td>{e.surname}</td>
                                     <td>{e.age}</td>
                                     <td>{e.email}</td>
-                                    <td>{i === passIndex ? e.password : '********'}</td>
+                                    <td>{passIndex.includes(i) ? e.password : '********'}</td>
                                     <td>
                                         {/* {!passIndex ? ( */}
                                             <Eye
                                                 role="button"
-                                                onClick={() => showPassword([i])}
+                                                onClick={() => showPassword(i)}
                                             />
                                         {/*   ) : (
                                              <EyeOff
