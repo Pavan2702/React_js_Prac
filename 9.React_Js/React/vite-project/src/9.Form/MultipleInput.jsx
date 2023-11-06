@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Form, FormGroup, Input, Label, Table } from 'reactstrap';
+import { Button, Col, Form, FormGroup, Input, Label, Table } from 'reactstrap';
 import { Eye, EyeOff, PenSquare, Trash2 } from 'lucide-react';
 
 export default function MultipleInput() {
-    const [user, setUser] = useState({
+    let [user, setUser] = useState({
         name: '',
         surname: '',
         age: '',
         email: '',
         password: '',
-    });
+        gender: '',
+        hobby: []
+    })
     const [array, setArray] = useState([]);
     const [updateMode, setUpdateMode] = useState(false);
     const [updateIndex, setUpdateIndex] = useState(null);
     const [searchText, setSearchText] = useState('');
     const [passIndex, setPassIndex] = useState([]);
+
 
     useEffect(() => {
         const jsonStr = localStorage?.getItem('dataArray');
@@ -39,6 +42,8 @@ export default function MultipleInput() {
             age: '',
             email: '',
             password: '',
+            gender: '',
+            hobby: ''
         });
     }
 
@@ -52,7 +57,12 @@ export default function MultipleInput() {
     }
 
     function showPassword(index) {
-        setPassIndex([...passIndex,index])
+        setPassIndex([...passIndex, index])
+    }
+
+    function hidePassword(index) {
+        const filteredData = passIndex?.filter((e, i) => i !== index);
+        setPassIndex(filteredData);
     }
 
     function deleteItem(index) {
@@ -81,7 +91,7 @@ export default function MultipleInput() {
                 age: '',
                 email: '',
                 password: '',
-            });
+            })
         }
     }
 
@@ -139,6 +149,61 @@ export default function MultipleInput() {
                             onChange={(e) => setUser({ ...user, password: e.target.value })}
                         />
                     </FormGroup>
+                    <FormGroup tag="fieldset">
+                        <legend>Gender</legend>
+                        <FormGroup check>
+                            <Label check>
+                                <Input type="radio" name="radio1"
+                                    value="Male"
+                                    checked={user.gender === "Male"}
+                                    onChange={(e) => setUser({ ...user, gender: e.target.value })}
+                                />{' '}
+                                Male
+                            </Label>
+                        </FormGroup>
+                        <FormGroup check>
+                            <Label check>
+                                <Input type="radio" name="radio1"
+                                    value="Female"
+                                    checked={user.gender === "Female"}
+                                    onChange={(e) => setUser({ ...user, gender: e.target.value })}
+                                />{' '}
+                                Female
+                            </Label>
+                        </FormGroup>
+                    </FormGroup>
+                    <FormGroup row>
+                        <Label for="checkbox">Hobby</Label>
+                        <FormGroup check>
+                            <Label check>
+                                <Input type="checkbox" id="checkbox1"
+                                    value="Reading"
+                                    checked={user.hobby.includes("Reading")}
+                                    onChange={(e) => setUser({ ...user, hobby: [...user.hobby, e.target.value] })} />{' '}
+
+                                Reading
+                            </Label>
+                        </FormGroup>
+                        <FormGroup check>
+                            <Label check>
+                                <Input type="checkbox" id="checkbox2"
+                                    value="Learning"
+                                    checked={user.hobby.includes("Learning")}
+                                    onChange={(e) => setUser({ ...user, hobby: [...user.hobby, e.target.value] })} />{' '}
+                                Learning
+                            </Label>
+                        </FormGroup><FormGroup check>
+                            <Label check>
+                                <Input type="checkbox" id="checkbox3"
+                                    value="Walking"
+                                    checked={user.hobby.includes("Walking")}
+                                    onChange={(e) => setUser({ ...user, hobby: [...user.hobby, e.target.value] })} />{' '}
+
+                                Walking
+                            </Label>
+                        </FormGroup>
+                    </FormGroup>
+
                     <Button color="warning" className="w-100" onClick={updateMode ? handleUpdate : onSubmit}>
                         {updateMode ? 'Update' : 'Submit'}
                     </Button>
@@ -157,7 +222,9 @@ export default function MultipleInput() {
                             <th>Age</th>
                             <th>Email</th>
                             <th>Password</th>
-                            <th>Show Password</th>
+                            <th>Show / Hide</th>
+                            <th>Gender</th>
+                            <th>Hobby</th>
                             <th>Delete</th>
                             <th>Update</th>
                         </tr>
@@ -177,20 +244,22 @@ export default function MultipleInput() {
                                     <td>{e.surname}</td>
                                     <td>{e.age}</td>
                                     <td>{e.email}</td>
-                                    <td>{passIndex.includes(i) ? e.password : '********'}</td>
+                                    <td>{passIndex?.includes(i) ? e.password : '********'}</td>
                                     <td>
-                                        {/* {!passIndex ? ( */}
+                                        {passIndex.includes(i) ? (
                                             <Eye
+                                                role="button"
+                                                onClick={() => hidePassword(i)}
+                                            />
+                                        ) : (
+                                            <EyeOff
                                                 role="button"
                                                 onClick={() => showPassword(i)}
                                             />
-                                        {/*   ) : (
-                                             <EyeOff
-                                                 role="button"
-                                                 onClick={() => setPassIndex(!passIndex)}
-                                             />
-                                        )} */}
+                                        )}
                                     </td>
+                                    <td>{e.gender}</td>
+                                    <td>{e.hobby.join('-')}</td>
                                     <td>
                                         <Trash2
                                             role="button"
