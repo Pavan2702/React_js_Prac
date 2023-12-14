@@ -91,6 +91,8 @@ export default function MultipleInput() {
                 age: '',
                 email: '',
                 password: '',
+                gender :'',
+                hobby: []
             })
         }
     }
@@ -177,29 +179,27 @@ export default function MultipleInput() {
                         <FormGroup check>
                             <Label check>
                                 <Input type="checkbox" id="checkbox1"
-                                    value="Reading"
-                                    checked={user.hobby.includes("Reading")}
+                                    value="Coding"
+                                    checked={user.hobby.includes("Coding")}
                                     onChange={(e) => setUser({ ...user, hobby: [...user.hobby, e.target.value] })} />{' '}
-
-                                Reading
+                                Coding
                             </Label>
                         </FormGroup>
                         <FormGroup check>
                             <Label check>
                                 <Input type="checkbox" id="checkbox2"
-                                    value="Learning"
-                                    checked={user.hobby.includes("Learning")}
+                                    value="Gameing"
+                                    checked={user.hobby.includes("Gameing")}
                                     onChange={(e) => setUser({ ...user, hobby: [...user.hobby, e.target.value] })} />{' '}
-                                Learning
+                                Gameing
                             </Label>
                         </FormGroup><FormGroup check>
                             <Label check>
                                 <Input type="checkbox" id="checkbox3"
-                                    value="Walking"
-                                    checked={user.hobby.includes("Walking")}
+                                    value="Reading a books"
+                                    checked={user.hobby.includes("Reading a books")}
                                     onChange={(e) => setUser({ ...user, hobby: [...user.hobby, e.target.value] })} />{' '}
-
-                                Walking
+                                Reading a books
                             </Label>
                         </FormGroup>
                     </FormGroup>
@@ -210,7 +210,9 @@ export default function MultipleInput() {
                     <Button color="warning" className="w-100 mt-3" onClick={removeAll}>Delete All</Button>
                 </Form>
             </div>
-            <input className="m-auto" type="text" placeholder="Search here" onChange={(e) => setSearchText(e.target.value)} />
+            <div className='d-flex justify-content-center mt-3'> 
+            <input className="m-auto w-25 p-2 border border-dark border-3" type="text" placeholder="Search here" onChange={(e) => setSearchText(e.target.value)} />
+            </div>
 
             <div className="pt-3">
                 <Table dark>
@@ -232,7 +234,7 @@ export default function MultipleInput() {
                     <tbody>
                         {array?.length === 0 ? (
                             <tr>
-                                <td colSpan="8" style={{ textAlign: "center" }}>
+                                <td colSpan="11" style={{ textAlign: "center" }}>
                                     Data not found
                                 </td>
                             </tr>

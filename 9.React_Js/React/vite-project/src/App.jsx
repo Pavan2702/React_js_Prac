@@ -47,10 +47,10 @@ function App() {
     {/* <PropsChange name={"Name1"}/> */}
     {/* <FormValidation/> */}
     {/* <FormValidationTask/> */}
-    <MultipleInput/>
+    {/* <MultipleInput/> */}
     {/* <MultipleInputFun/> */}
     {/* <Homepage/> */}
-    {/* <Router/> */}
+    <Router/>
     </div>
 
   )
