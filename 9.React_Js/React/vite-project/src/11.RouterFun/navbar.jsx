@@ -21,11 +21,11 @@ export default () => {
     const toggle = () => setIsOpen(!isOpen);
 
     return (
-        <div>
+        <div className='container'>
             <Navbar expand="lg">
                 <NavbarBrand href="/">reactstrap</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
-                <Collapse isOpen={isOpen} navbar>
+                <Collapse isOpen={isOpen} navbar className='d-flex m-auto'>
                     <Nav className="me-auto Navlink d-flex gap-3" navbar>
                         <NavItem>
                             <NavLink to={"/"}>Home</NavLink>{" "}
@@ -40,7 +40,6 @@ export default () => {
                             <NavLink to={"/product"}>Product</NavLink>
                         </NavItem>
                     </Nav>
-                    <NavbarText>Simple Text</NavbarText>
                 </Collapse>
             </Navbar>
         </div>

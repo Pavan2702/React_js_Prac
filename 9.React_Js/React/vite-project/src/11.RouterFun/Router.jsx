@@ -22,9 +22,8 @@ export default function Router() {
             <Route path='bike' element={<Bikeservice />} />
           </Route>
           <Route path='/contact' element={<Contact />} />
-          <Route path='/Product' element={<Product />} />
-          <Route path='/singlepage' element={<Singlepage />} />
-
+          <Route path='/product' element={<Product />} />
+          <Route path='/singlepage/:id' element={<Singlepage />} />
         </Routes>
       </BrowserRouter>
     </>
