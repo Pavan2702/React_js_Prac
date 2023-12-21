@@ -16,6 +16,9 @@ import PropsChange from "./3.Props/PropsChange"
 import MultipleInputFun from "./9.Form/MultipleInputFun"
 import Router from "./11.RouterFun/Router"
 import MultipleInput from "./9.Form/MultipleInput"
+import UseReducer from "./13.UseReducer/UseReducer"
+import PasswordTask from "./13.UseReducer/PasswordTask"
+import RouterPro from "./12.ProtectedRouter/Router/RouterPro"
 // import FormValidation from "./9.Form/FormValidation"
 // import FormValidationTask from "./9.Form/FormValidationTask"
 
@@ -50,7 +53,10 @@ function App() {
     {/* <MultipleInput/> */}
     {/* <MultipleInputFun/> */}
     {/* <Homepage/> */}
-    <Router/>
+    {/* <Router/> */}
+    {/* <UseReducer/> */}
+    {/* <PasswordTask/> */}
+    <RouterPro/>
     </div>
 
   )

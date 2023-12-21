@@ -162,7 +162,6 @@ export default function MultipleInputFun() {
                             onChange={(e) => setUser({ ...user, mobile: e?.target?.value })}
                         />
                     </FormGroup>
-
                     <Button color='success' className='w-100' onClick={updateMode ? handleUpdate : submitBtn}>
                         {updateMode ? 'Update' : 'Submit'}
                     </Button>
@@ -175,8 +174,8 @@ export default function MultipleInputFun() {
 
             <div className='bg-danger p-3'>
                 <div className='w-75 m-auto p-3   '>
-                    <label htmlFor="search" className='fs-5 fw-bold text-light'  >Search Here</label> <br/>
-                    <input type="text" onChange={(e) => setSearch(e?.target?.value)} placeholder='search' className='w-50 p-2 border border-dark border-3 rounded-3'/>
+                    <label htmlFor="search" className='fs-5 fw-bold text-light'  >Search Here</label> <br />
+                    <input type="text" onChange={(e) => setSearch(e?.target?.value)} placeholder='search' className='w-50 p-2 border border-dark border-3 rounded-3' />
                 </div>
 
 
