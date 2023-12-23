@@ -2,29 +2,35 @@
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Label, Input, Form, Col, Row } from 'reactstrap';
 
-export default function Register({ modal, toggle }) {
-    let [user, setUser] = useState({
+export default function Login({ modal, toggle }) {
+    let [loginuser, setLoginuser] = useState({
         email: "",
         password: "",
     })
-    let [arr, setArr] = useState([])
 
 
     function submitBtn() {
-        // console.log(user)
-        if (user.email == "" && user.password == "")
+        if (loginuser.email == "" && loginuser.password == "")
             alert("Fill this field first")
-        else
-            setArr([...arr, user])
+        else { loginuser }
 
-        localStorage.setItem("dataArray", JSON.stringify([...arr, user]))
-        // console.log([...arr, user])
+        let LogInData =  localStorage.setItem("loginarray", JSON.stringify({ loginuser }))
+
+        let LogData = JSON.parse({LogInData})
+        console.log("🚀 ~ file: Login.jsx:20 ~ submitBtn ~ LogData:", LogData)
+
+        // let OldData = JSON.parse(localStorage.getItem("dataarray"))
+
+        // if (LoginData === OldData ) {
+        //     console.log("Log in");
+        // }
 
         // on click input in his initial state
-        setUser({
+        setLoginuser({
             email: "",
             password: "",
         })
+        toggle()
     }
     return (
         <div>
@@ -41,10 +47,10 @@ export default function Register({ modal, toggle }) {
                                     <Input
                                         id="exampleEmail"
                                         name="email"
-                                        value={user?.email}
+                                        value={loginuser?.email}
                                         placeholder="with a placeholder"
                                         type="email"
-                                        onChange={(e) => setUser({ ...user, email: e?.target?.value })}
+                                        onChange={(e) => setLoginuser({ ...loginuser, email: e?.target?.value })}
                                     />
                                 </FormGroup>
                             </Col>
@@ -56,10 +62,10 @@ export default function Register({ modal, toggle }) {
                                     <Input
                                         id="examplePassword"
                                         name="password"
-                                        value={user?.password}
+                                        value={loginuser?.password}
                                         placeholder="password placeholder"
                                         type="password"
-                                        onChange={(e) => setUser({ ...user, password: e?.target?.value })}
+                                        onChange={(e) => setLoginuser({ ...loginuser, password: e?.target?.value })}
                                     />
                                 </FormGroup>
                             </Col>

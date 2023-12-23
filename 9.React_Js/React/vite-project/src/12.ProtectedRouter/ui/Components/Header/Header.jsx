@@ -3,6 +3,7 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, Button } fr
 import './Header.css'; // You need to import your CSS file
 import { NavLink } from 'react-router-dom';
 import Register from '../Modal/Register';
+import Login from '../Modal/Login';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,12 +14,27 @@ export default function Header() {
 
   const Regtoggle = () => setRegmodal(!regmodal);
 
+  const [loginmodal, setLoginmodal] = useState(false);
+
+  const Logtoggle = () => setLoginmodal(!loginmodal);
+
+  const data = JSON.parse(localStorage.getItem("loginarray")) || {};
+  // const navigate = useNavigate();
+
+  const logoutHandler = () => {
+    localStorage.setItem("loginarray", JSON.stringify({}));
+    // navigate("/");
+    setLoginmodal(true);
+    toggle()
+  };
+
 
   return (
     <>
       {/* Header */}
       <header>
-<Register modal={regmodal} toggle={Regtoggle}/>
+        <Register modal={regmodal} toggle={Regtoggle} />
+        <Login modal={loginmodal} toggle={Logtoggle} />
 
         <Navbar color="light" light expand="lg">
           <NavbarBrand href="/">FOODies</NavbarBrand>
@@ -42,12 +58,14 @@ export default function Header() {
               <NavItem>
                 <Button onClick={Regtoggle}>Register</Button>
               </NavItem>
-              <NavItem>
-                <Button>Log In</Button>
-              </NavItem>
-              <NavItem>
-                <Button>Log In</Button>
-              </NavItem>
+
+              {data && Object.keys(data).length > 0 ?
+                (<NavItem>
+                  <Button onClick={logoutHandler}>Log Out</Button>
+                </NavItem>)
+                : (<NavItem>
+                  <Button onClick={Logtoggle}>Log in</Button>
+                </NavItem>)}
             </Nav>
           </Collapse>
         </Navbar>

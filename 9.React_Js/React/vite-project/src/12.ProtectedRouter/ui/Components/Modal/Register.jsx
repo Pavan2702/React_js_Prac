@@ -13,18 +13,18 @@ export default function Register({ modal, toggle }) {
         // state: "",
         // zip: "",
     })
-    let [arr, setArr] = useState([])
 
 
-    function submitBtn() {
-        // console.log(user)
-        if (user.email == "" && user.password == "")
-            alert("Fill this field first")
-        else
-            setArr([...arr, user])
+    function submitBtn(e) {
+    
 
-        localStorage.setItem("dataArray", JSON.stringify([...arr, user]))
-        // console.log([...arr, user])
+        if (user.email == "" && user.password == "") { alert("Fill this field first") }
+        else { user }
+
+
+        localStorage.setItem("dataArray", JSON.stringify({ user }))
+        localStorage.setItem("loginarray", JSON.stringify({ user }))
+        // console.log({ user })
 
         // on click input in his initial state
         setUser({
@@ -35,6 +35,8 @@ export default function Register({ modal, toggle }) {
             // occupation: "",
             // mobile: ""
         })
+        e.preventDefault()
+        toggle()
     }
     return (
         <div>
@@ -146,7 +148,7 @@ export default function Register({ modal, toggle }) {
 
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="primary" onClick={submitBtn}>
+                    <Button color="primary" onClick={(e) => submitBtn(e)}>
                         Submit
                     </Button>
                     <Button color="secondary" onClick={toggle}>

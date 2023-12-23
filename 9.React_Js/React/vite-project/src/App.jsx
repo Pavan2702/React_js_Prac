@@ -19,6 +19,7 @@ import MultipleInput from "./9.Form/MultipleInput"
 import UseReducer from "./13.UseReducer/UseReducer"
 import PasswordTask from "./13.UseReducer/PasswordTask"
 import RouterPro from "./12.ProtectedRouter/Router/RouterPro"
+import { ToastContainer } from "react-toastify"
 // import FormValidation from "./9.Form/FormValidation"
 // import FormValidationTask from "./9.Form/FormValidationTask"
 
@@ -57,6 +58,7 @@ function App() {
     {/* <UseReducer/> */}
     {/* <PasswordTask/> */}
     <RouterPro/>
+    {/* <ToastContainer/> */}
     </div>
 
   )
