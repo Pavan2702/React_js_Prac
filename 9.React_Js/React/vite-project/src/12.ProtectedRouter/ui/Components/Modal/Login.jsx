@@ -22,8 +22,9 @@ export default function Login({ modal, toggle }) {
         } else if (matchData) {
             if (matchData.password !== loginuser.password) {
                 alert("Enter correct Password")
+                localStorage.setItem("LoginData", JSON.stringify(matchData))
+
             }
-            localStorage.setItem("LoginData", JSON.stringify(matchData))
         }
         // else { loginuser }
         // console.log("🚀 ~ file: Login.jsx:27 ~ submitBtn ~ matchData:", matchData)

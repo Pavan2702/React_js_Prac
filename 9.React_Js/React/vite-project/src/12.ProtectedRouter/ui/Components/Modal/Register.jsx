@@ -17,13 +17,13 @@ export default function Register({ modal, toggle }) {
 
     function submitBtn(e) {
 
-        let oldData = JSON.parse(localStorage.getItem("RegisterData")) || {}
+        let oldData = JSON.parse(localStorage.getItem("RegisterData")) || []
 
         if (user.email == "" && user.password == "") { alert("Fill this field first") }
         else { user }
 
 
-        localStorage.setItem("RegisterData", JSON.stringify([{...oldData, user }]))
+        localStorage.setItem("RegisterData", JSON.stringify([...oldData, user ]))
 
         localStorage.setItem("LoginData", JSON.stringify( user ))
         // console.log({ user })
