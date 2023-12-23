@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, Button } from 'reactstrap';
 import './Header.css'; // You need to import your CSS file
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Register from '../Modal/Register';
 import Login from '../Modal/Login';
 
@@ -18,11 +18,12 @@ export default function Header() {
 
   const Logtoggle = () => setLoginmodal(!loginmodal);
 
-  const data = JSON.parse(localStorage.getItem("loginarray")) || {};
+  const data = JSON.parse(localStorage.getItem("LoginData")) || [];
+  // console.log("🚀 ~ file: Header.jsx:22 ~ Header ~ data:", data)
   // const navigate = useNavigate();
 
   const logoutHandler = () => {
-    localStorage.setItem("loginarray", JSON.stringify({}));
+    localStorage.setItem("LoginData", JSON.stringify([]));
     // navigate("/");
     setLoginmodal(true);
     toggle()
@@ -63,9 +64,11 @@ export default function Header() {
                 (<NavItem>
                   <Button onClick={logoutHandler}>Log Out</Button>
                 </NavItem>)
-                : (<NavItem>
+                :
+                (<NavItem>
                   <Button onClick={Logtoggle}>Log in</Button>
-                </NavItem>)}
+                </NavItem>)
+              }
             </Nav>
           </Collapse>
         </Navbar>

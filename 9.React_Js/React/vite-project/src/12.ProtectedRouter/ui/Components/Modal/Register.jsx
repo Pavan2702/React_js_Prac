@@ -16,14 +16,16 @@ export default function Register({ modal, toggle }) {
 
 
     function submitBtn(e) {
-    
+
+        let oldData = JSON.parse(localStorage.getItem("RegisterData")) || {}
 
         if (user.email == "" && user.password == "") { alert("Fill this field first") }
         else { user }
 
 
-        localStorage.setItem("dataArray", JSON.stringify({ user }))
-        localStorage.setItem("loginarray", JSON.stringify({ user }))
+        localStorage.setItem("RegisterData", JSON.stringify([{...oldData, user }]))
+
+        localStorage.setItem("LoginData", JSON.stringify( user ))
         // console.log({ user })
 
         // on click input in his initial state

@@ -4,11 +4,10 @@ export default function ProtectedRouter({ Component }) {
     // console.log("🚀 ~ file: ProtectedRouter.jsx:4 ~ ProtectedRouter ~ Component:", typeof Component)
     const navigate1 = useNavigate()
     useEffect(() => {
-        let data = localStorage.getItem("loginarray")
-        let normal = JSON.parse(data)
+        let ProData = JSON.parse(localStorage.getItem("loginData"))
         // Object.keys(normal).length
-        if (normal && Object.keys(normal).length === 0) {
-            navigate1("/Login")
+        if (ProData && Object.keys(ProData).length === 0) {
+            navigate1("/")
         }
     })
 

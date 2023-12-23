@@ -7,23 +7,27 @@ export default function Login({ modal, toggle }) {
         email: "",
         password: "",
     })
+    let RegData1 = JSON.parse(localStorage.getItem("RegisterData"))
 
+
+    // localStorage.setItem("loginData", JSON.stringify(loginuser))
 
     function submitBtn() {
-        if (loginuser.email == "" && loginuser.password == "")
+        let LogData = localStorage.getItem("LoginData")
+        let RegData = JSON.parse(localStorage.getItem("RegisterData")) || []
+        let matchData = RegData.find((e) => e.email === loginuser.email)
+
+        if (loginuser.email == "" && loginuser.password == "") {
             alert("Fill this field first")
-        else { loginuser }
+        } else if (matchData) {
+            if (matchData.password !== loginuser.password) {
+                alert("Enter correct Password")
+            }
+            localStorage.setItem("LoginData", JSON.stringify(matchData))
+        }
+        // else { loginuser }
+        // console.log("🚀 ~ file: Login.jsx:27 ~ submitBtn ~ matchData:", matchData)
 
-        let LogInData =  localStorage.setItem("loginarray", JSON.stringify({ loginuser }))
-
-        let LogData = JSON.parse({LogInData})
-        console.log("🚀 ~ file: Login.jsx:20 ~ submitBtn ~ LogData:", LogData)
-
-        // let OldData = JSON.parse(localStorage.getItem("dataarray"))
-
-        // if (LoginData === OldData ) {
-        //     console.log("Log in");
-        // }
 
         // on click input in his initial state
         setLoginuser({
@@ -73,7 +77,7 @@ export default function Login({ modal, toggle }) {
                     </Form>
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="primary" onClick={submitBtn}>
+                    <Button color="primary" onClick={() => submitBtn()}>
                         Submit
                     </Button>
                     <Button color="secondary" onClick={toggle}>
