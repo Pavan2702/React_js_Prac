@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Label, Input, Form, Col, Row } from 'reactstrap';
 
 export default function Register({ modal, toggle }) {
@@ -19,26 +20,30 @@ export default function Register({ modal, toggle }) {
 
         let oldData = JSON.parse(localStorage.getItem("RegisterData")) || []
 
-        if (user.email == "" && user.password == "") { alert("Fill this field first") }
-        else { user }
+        let match = oldData.find((e) => e.email === user.email)
 
+        if (match) {
+            alert("User already exist")
+        }
+        else if (user.email === "" || user.password === "") {
+            alert("Please Fill this field")
+        }
+        else {
+            localStorage.setItem("RegisterData", JSON.stringify([...oldData, user]))
+            localStorage.setItem("LoginData", JSON.stringify(user))
 
-        localStorage.setItem("RegisterData", JSON.stringify([...oldData, user ]))
-
-        localStorage.setItem("LoginData", JSON.stringify( user ))
-        // console.log({ user })
-
-        // on click input in his initial state
-        setUser({
-            email: "",
-            password: "",
-            usertype: "",
-            // age: "",
-            // occupation: "",
-            // mobile: ""
-        })
-        e.preventDefault()
-        toggle()
+            // on click input in his initial state
+            setUser({
+                email: "",
+                password: "",
+                usertype: "",
+                // age: "",
+                // occupation: "",
+                // mobile: ""
+            })
+            e.preventDefault()
+            toggle()
+        }
     }
     return (
         <div>

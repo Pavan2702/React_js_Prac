@@ -10,6 +10,7 @@ export default function Login({ modal, toggle }) {
     let RegData1 = JSON.parse(localStorage.getItem("RegisterData"))
 
 
+
     // localStorage.setItem("loginData", JSON.stringify(loginuser))
 
     function submitBtn() {
@@ -22,8 +23,11 @@ export default function Login({ modal, toggle }) {
         } else if (matchData) {
             if (matchData.password !== loginuser.password) {
                 alert("Enter correct Password")
-                localStorage.setItem("LoginData", JSON.stringify(matchData))
 
+            } else {
+
+                localStorage.setItem("LoginData", JSON.stringify(matchData))
+                toggle()
             }
         }
         // else { loginuser }
@@ -35,7 +39,7 @@ export default function Login({ modal, toggle }) {
             email: "",
             password: "",
         })
-        toggle()
+        // toggle()
     }
     return (
         <div>

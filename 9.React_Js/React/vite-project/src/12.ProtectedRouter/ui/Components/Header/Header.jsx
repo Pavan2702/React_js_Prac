@@ -19,12 +19,12 @@ export default function Header() {
   const Logtoggle = () => setLoginmodal(!loginmodal);
 
   const data = JSON.parse(localStorage.getItem("LoginData")) || [];
-  // console.log("🚀 ~ file: Header.jsx:22 ~ Header ~ data:", data)
-  // const navigate = useNavigate();
+  const Regdata = JSON.parse(localStorage.getItem("RegisterData")) || [];
+  const navigate = useNavigate();
 
   const logoutHandler = () => {
     localStorage.setItem("LoginData", JSON.stringify([]));
-    // navigate("/");
+    navigate("/");
     setLoginmodal(true);
     toggle()
   };
@@ -56,18 +56,20 @@ export default function Header() {
               </NavItem>
             </Nav>
             <Nav className="m-auto" navbar>
-              <NavItem>
-                <Button onClick={Regtoggle}>Register</Button>
-              </NavItem>
-
-              {data && Object.keys(data).length > 0 ?
-                (<NavItem>
-                  <Button onClick={logoutHandler}>Log Out</Button>
-                </NavItem>)
+              {Regdata && Object.keys(data).length > 0 ?
+                (<NavItem></NavItem>)
                 :
                 (<NavItem>
-                  <Button onClick={Logtoggle}>Log in</Button>
-                </NavItem>)
+                  <Button onClick={Regtoggle}>Register</Button>
+                </NavItem>)}
+                { data && Object.keys(data).length > 0 ?
+                  (<NavItem>
+                    <Button onClick={logoutHandler}>Log Out</Button>
+                  </NavItem>)
+                  :
+                  (<NavItem>
+                    <Button onClick={Logtoggle}>Log in</Button>
+                  </NavItem>)
               }
             </Nav>
           </Collapse>
