@@ -1,12 +1,15 @@
 import React from 'react'
+import img1 from '../../../../public/Images/img1.jpg'
+import './Home.css'
 
 export default function Home() {
   return (
     <>
-    <div>
-      <p>
+    <div className='image'>
+      <img className='img' src={img1} alt="" />
+      {/* <p>
         <span>Welcome</span> to <br/> The world Of <br/> Tasty &Gresh Food
-      </p>
+      </p> */}
     </div>
       {/* Content */}
       {/* <div className="header-content">

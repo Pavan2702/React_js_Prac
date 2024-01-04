@@ -1,7 +1,9 @@
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Label, Input, Form, Col, Row } from 'reactstrap';
+import Login from './Login';
 
 export default function Register({ modal, toggle }) {
     let [user, setUser] = useState({
@@ -29,6 +31,7 @@ export default function Register({ modal, toggle }) {
             alert("Please Fill this field")
         }
         else {
+            // localStorage.setItem("RegisterData", JSON.stringify([oldData]))
             localStorage.setItem("RegisterData", JSON.stringify([...oldData, user]))
             localStorage.setItem("LoginData", JSON.stringify(user))
 
@@ -38,7 +41,7 @@ export default function Register({ modal, toggle }) {
                 password: "",
                 usertype: "",
                 // age: "",
-                // occupation: "",
+                // occupation: "",?
                 // mobile: ""
             })
             e.preventDefault()
@@ -47,6 +50,7 @@ export default function Register({ modal, toggle }) {
     }
     return (
         <div>
+            {/* <Login /> */}
             <Modal isOpen={modal} toggle={toggle} >
                 <ModalHeader toggle={toggle}>Modal title</ModalHeader>
                 <ModalBody>
@@ -152,7 +156,9 @@ export default function Register({ modal, toggle }) {
                             </Col>
                         </Row> */}
                     </Form>
-
+                    <FormGroup>
+                        {/* <label>Don't have an account <p role='button' onClick={Regtoggle}>Register here</p></label> */}
+                    </FormGroup>
                 </ModalBody>
                 <ModalFooter>
                     <Button color="primary" onClick={(e) => submitBtn(e)}>

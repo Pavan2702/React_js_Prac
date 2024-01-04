@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, Button } from 'reactstrap';
+
 import './Header.css'; // You need to import your CSS file
 import { NavLink, useNavigate } from 'react-router-dom';
 import Register from '../Modal/Register';
 import Login from '../Modal/Login';
+import { CircleUser } from 'lucide-react';
+// import { FaRegUserCircle } from "react-icons/fa";
+
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,10 +20,12 @@ export default function Header() {
 
   const [loginmodal, setLoginmodal] = useState(false);
 
-  const Logtoggle = () => setLoginmodal(!loginmodal);
+  const Logtoggle = (() => {
+    setLoginmodal(!loginmodal)
+    toggle()
+  });
 
   const data = JSON.parse(localStorage.getItem("LoginData")) || [];
-  const Regdata = JSON.parse(localStorage.getItem("RegisterData")) || [];
   const navigate = useNavigate();
 
   const logoutHandler = () => {
@@ -35,7 +41,7 @@ export default function Header() {
       {/* Header */}
       <header>
         <Register modal={regmodal} toggle={Regtoggle} />
-        <Login modal={loginmodal} toggle={Logtoggle} />
+        <Login modal={loginmodal} toggle={Logtoggle} registertologin={Regtoggle} />
 
         <Navbar color="light" light expand="lg">
           <NavbarBrand href="/">FOODies</NavbarBrand>
@@ -48,29 +54,31 @@ export default function Header() {
               <NavItem>
                 <NavLink to={"/about"} onClick={toggle}>About</NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink to={"/admin"} onClick={toggle}>Admin</NavLink>
-              </NavItem>
+              {data.usertype === "admin" ?
+                (
+                  <NavItem>
+                    <NavLink to={"/admin"} onClick={toggle}>Admin</NavLink>
+                  </NavItem>
+                ) : (null)
+              }
               <NavItem>
                 {/* <NavLink to="/contact" onClick={toggle}>Contact us</NavLink> */}
               </NavItem>
             </Nav>
             <Nav className="m-auto" navbar>
-              {Regdata && Object.keys(data).length > 0 ?
-                (<NavItem></NavItem>)
+
+              {data && Object.keys(data).length > 0 ?
+                (<NavItem>
+                  <Button onClick={logoutHandler}>Log Out</Button>
+                </NavItem>)
                 :
                 (<NavItem>
-                  <Button onClick={Regtoggle}>Register</Button>
-                </NavItem>)}
-                { data && Object.keys(data).length > 0 ?
-                  (<NavItem>
-                    <Button onClick={logoutHandler}>Log Out</Button>
-                  </NavItem>)
-                  :
-                  (<NavItem>
-                    <Button onClick={Logtoggle}>Log in</Button>
-                  </NavItem>)
+                  <Button onClick={Logtoggle}>Log in</Button>
+                </NavItem>)
               }
+              <NavItem className='icons'>
+                <NavLink to={"/profile"} onClick={toggle}> <CircleUser /></NavLink>
+              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
@@ -80,5 +88,3 @@ export default function Header() {
     </>
   );
 };
-
-
