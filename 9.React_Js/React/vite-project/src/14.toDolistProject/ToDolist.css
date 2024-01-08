@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css?family=Rubik Glitch");
+@import url("https://fonts.googleapis.com/css?family=Permanent Marker");
+
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +13,7 @@ body {
 .mainpage {
     height: 100vh;
     width: 100%;
-    background-color: rgb(205, 238, 238);
+    background-image: linear-gradient(to bottom left, rgba(18, 112, 225, 0.904), rgba(20, 170, 77, 0.986));
 }
 
 .mainpage .content {
@@ -22,29 +25,71 @@ body {
 
 }
 
+.mainpage .content .heading {
+    font-family: Rubik Glitch;
+    font-weight: 100;
+    color: black;
+}
+
 .mainpage .content .inputData {
+    display: flex;
+    flex-direction: row;
     padding: 2vh;
 }
 
-.mainpage .content .button {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
+.mainpage .content .inputData .inputType input {
+    height: 30px;
+    width: auto;
+    border-radius: 10px;
+    border: 2px solid black;
+    font-size: large;
 }
 
-.mainpage .pages{
+.mainpage .content .inputData .bt1 {
+    position: relative;
+    left: -30px;
+}
+
+.mainpage .content .inputData button {
+    color: black;
+    background-color: white;
+    border: transparent;
+    --bs-btn-padding-y: unset;
+    width: auto;
+}
+
+.mainpage .content .inputData .bt1 span {
+    display: block;
+    height: 26px;
+    width: auto;
+    margin-top: -13px;
+    font-size: x-large;
+}
+
+.mainpage .pages {
     display: flex;
     padding: 5vh;
     gap: 5vw;
 }
 
-.mainpage .pages .page1{
+.mainpage .pages .page1 {
+    padding-top: 50px;
     width: 50%;
     height: 70vh;
     background-color: whitesmoke;
 }
 
-.mainpage .pages .page2{
+.mainpage .pages .page2 {
+    padding-top: 50px;
+
     width: 50%;
     background-color: whitesmoke;
+}
+
+.pages .heading{
+    /* background-color: aqua; */
+    font-family: Permanent Marker;
+    display: flex;
+    width: 50%;
+    margin: auto;
 }

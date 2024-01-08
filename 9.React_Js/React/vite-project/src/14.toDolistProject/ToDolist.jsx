@@ -67,17 +67,22 @@ export default function ToDolist() {
 }
 */
 
-// ... (imports)
-
 export default function ToDolist() {
+    //Create a state for store a data
     const [inputText, setInputText] = useState("");
     const [todo, setTodo] = useState([]);
     const [completedTodo, setCompletedTodo] = useState([]);
+    // const [notCompletedTodo, SetNotCompletedTodo] = useState([])
 
+    //use useeffect for local storage to store a data 
     useEffect(() => {
         let pendingTask = JSON.parse(localStorage.getItem("pendingList")) || []
         let completeData = JSON.parse(localStorage.getItem("completeList")) || []
-    })
+        setCompletedTodo(completeData)
+        setTodo(pendingTask)
+    }, [])
+
+    //To a data in list
 
     const submit = () => {
         if (inputText !== "") {
@@ -86,7 +91,8 @@ export default function ToDolist() {
                 text: inputText,
                 completed: false
             };
-            localStorage.setItem("pendingList", JSON.parse(setTodo([...todo, newTodo])))
+            setTodo([...todo, newTodo])
+            localStorage.setItem("pendingList", JSON.stringify([...todo, newTodo]))
             setInputText("");
         }
     };
@@ -103,58 +109,90 @@ export default function ToDolist() {
 
     const taskComplete = () => {
         const completedTasks = todo.filter((task) => task.completed);
-        setCompletedTodo([...completedTodo, ...completedTasks]);
+        if (completedTasks.length > 0) {
+
+            // console.log("🚀 ~ file: ToDolist.jsx:111 ~ taskComplete ~ completed:", completedTasks)
+            setCompletedTodo([...completedTodo, ...completedTasks]);
+            localStorage.setItem("completeList", JSON.stringify([...completedTodo, ...completedTasks]))
+        }
+
         const remainingTasks = todo.filter((task) => !task.completed);
         setTodo(remainingTasks);
+        localStorage.setItem("pendingList", JSON.stringify(remainingTasks))
+
     };
 
     const toggleTaskNotCompletion = (completedTaskId) => {
         const updateCompletedTasks = completedTodo.map((task) => {
             if (task.id === completedTaskId) {
-                return { ...task, completed: !task.completed }
+                return { ...task, completed: !task.completed };
             }
-            return task
-        })
-        setTodo(updateCompletedTasks)
-    }
+            return task;
+        });
+        setCompletedTodo(updateCompletedTasks);
+    };
 
     const taskNotComplete = () => {
-        const notCompletedTasks = completedTodo.filter((task) => task.completed);
-        setTodo([...todo, ...notCompletedTasks]);
-        const remainingTasks = completedTodo.filter((task) => !task.completed);
-        setCompletedTodo(remainingTasks);
+        const notCompletedTasks = completedTodo.filter((task) => !task.completed);
+        if (notCompletedTasks.length > 0) {
+            setTodo([...todo, ...notCompletedTasks]);
+            localStorage.setItem("pendingList", JSON.stringify([...todo, ...notCompletedTasks]));
+
+            const remainingTasks = completedTodo.filter((task) => task.completed);
+            setCompletedTodo(remainingTasks);
+            localStorage.setItem("completeList", JSON.stringify(remainingTasks));
+        }
     };
+
+    // const selectAll = (index) => {
+
+    // }
 
     return (
         <>
             <div className="mainpage">
                 <div className="content">
+                    <h1 className='heading'>To-Do List</h1>
                     <div className="inputData">
-                        <input type="text" value={inputText} onChange={(e) => setInputText(e.target.value)} />
-                    </div>
-                    <div className="button">
+                        <div className="inputType">
+                            <input type="text" value={inputText} onChange={(e) => setInputText(e.target.value)} />
+                        </div>
                         <div className="bt1">
-                            <Button onClick={submit}>+</Button>
-                        </div>
-                        <div className="bt2">
-                            <Button onClick={taskComplete}>Task Completed</Button>
+                            <Button onClick={submit}><span>+</span></Button>
                         </div>
                     </div>
+
                 </div>
                 <div className="pages">
                     <div className="page1">
-                        {todo.map((item) => (
-                            <ul key={item.id}>
-                                <li>
-                                    <input type='checkbox' onChange={() => toggleTaskCompletion(item.id)} />
-                                    {item.text}
-                                </li>
-                            </ul>
-                        ))}
 
+                        <div className="heading">
+                            <h1>Pending Task List</h1>
+                        </div>
+
+                        {todo.length > 0 && (
+                            <div className="pending-task">
+
+                                {/* <input type="checkbox" onChange={(i) => selectAll(i)} /> <p>select all</p> */}
+                                {todo.map((item) => (
+                                    <ul key={item.id}>
+                                        <li>
+                                            <input type='checkbox' onChange={() => toggleTaskCompletion(item.id)} />
+                                            {item.text}
+                                        </li>
+                                    </ul>
+                                ))}
+                                <div className="btn1">
+                                    <Button onClick={taskComplete}>Task Completed</Button>
+                                </div>
+                            </div>
+                        )}
                     </div>
                     <div className="page2">
-                        <Button onClick={taskNotComplete}>task Not Completed</Button>
+                        <div className="heading">
+                            <h1>Completed Task</h1>
+                        </div>
+
                         {completedTodo.length > 0 && (
                             <div className="completed-tasks">
                                 {completedTodo.map((completedTask) => (
@@ -164,6 +202,9 @@ export default function ToDolist() {
                                             {completedTask.text}</li>
                                     </ul>
                                 ))}
+                                <div className="btn2">
+                                    <Button onClick={taskNotComplete}>task Not Completed</Button>
+                                </div>
                             </div>
                         )}
                     </div>
