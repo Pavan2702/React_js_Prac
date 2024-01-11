@@ -68,10 +68,11 @@ export default function ToDolist() {
 */
 
 export default function ToDolist() {
+
     //Create a state for store a data
     const [inputText, setInputText] = useState("");
     const [todo, setTodo] = useState([]);
-    const [completedTodo, setCompletedTodo] = useState([]);
+    const [  completedTodo, setCompletedTodo] = useState([]);
     // const [notCompletedTodo, SetNotCompletedTodo] = useState([])
 
     //use useeffect for local storage to store a data 
@@ -91,11 +92,15 @@ export default function ToDolist() {
                 text: inputText,
                 completed: false
             };
-            setTodo([...todo, newTodo])
-            localStorage.setItem("pendingList", JSON.stringify([...todo, newTodo]))
+            setTodo(prevTodo => {
+                const updatedTodo = [...prevTodo, newTodo];
+                localStorage.setItem("pendingList", JSON.stringify(updatedTodo))
+                return updatedTodo
+            })
             setInputText("");
-        }
-    };
+
+        };
+    }
 
     const toggleTaskCompletion = (taskId) => {
         const updatedTodo = todo.map((task) => {
@@ -104,16 +109,23 @@ export default function ToDolist() {
             }
             return task;
         })
-        setTodo(updatedTodo);
+        // setTodo(updatedTodo);
+        setTodo(prevTodo => {
+            localStorage.setItem("pendingList", JSON.stringify(updatedTodo));
+            return updatedTodo;
+        });
     };
 
     const taskComplete = () => {
         const completedTasks = todo.filter((task) => task.completed);
         if (completedTasks.length > 0) {
-
-            // console.log("🚀 ~ file: ToDolist.jsx:111 ~ taskComplete ~ completed:", completedTasks)
-            setCompletedTodo([...completedTodo, ...completedTasks]);
-            localStorage.setItem("completeList", JSON.stringify([...completedTodo, ...completedTasks]))
+            setCompletedTodo(prevCompleted => {
+                const updatedCompleted = [...prevCompleted, ...completedTasks];
+                localStorage.setItem("completeList", JSON.stringify(updatedCompleted));
+                return updatedCompleted;
+            });
+            // setCompletedTodo([...completedTodo, ...completedTasks]);
+            // localStorage.setItem("completeList", JSON.stringify([...completedTodo, ...completedTasks]))
         }
 
         const remainingTasks = todo.filter((task) => !task.completed);
@@ -130,24 +142,136 @@ export default function ToDolist() {
             return task;
         });
         setCompletedTodo(updateCompletedTasks);
+        // setTodo(prevTodo => {
+        //     localStorage.setItem("completeList", JSON.stringify(updatedTodo));
+        //     return updatedTodo;
+        // });
     };
 
     const taskNotComplete = () => {
         const notCompletedTasks = completedTodo.filter((task) => !task.completed);
         if (notCompletedTasks.length > 0) {
-            setTodo([...todo, ...notCompletedTasks]);
-            localStorage.setItem("pendingList", JSON.stringify([...todo, ...notCompletedTasks]));
+            setTodo(prevTodo => {
+                const updatedTodo = [...prevTodo, ...notCompletedTasks];
+                localStorage.setItem("pendingList", JSON.stringify(updatedTodo));
+                return updatedTodo;
+            });
+            // setTodo([...todo, ...notCompletedTasks]);
+            // localStorage.setItem("pendingList", JSON.stringify([...todo, ...notCompletedTasks]));
 
             const remainingTasks = completedTodo.filter((task) => task.completed);
             setCompletedTodo(remainingTasks);
             localStorage.setItem("completeList", JSON.stringify(remainingTasks));
         }
     };
+    /*
+    const selectAll = () => {
+        const updatedTodo = todo.map(task => ({ ...task, completed: true }));
+        localStorage.setItem("pendingList", JSON.stringify(updatedTodo));
+    }*/
+    const selectAll = () => {
+        const updatedTodo = todo.map(task => ({ ...task, completed: !task.completed }));
+        setTodo(prevTodo => {
+            localStorage.setItem("pendingList", JSON.stringify(updatedTodo));
+            return updatedTodo;
+        });
+        // setTodo(prevNotCompletedTodo => {
+        //     localStorage.setItem("completeList", JSON.stringify(updatedTodo));
+        //     return updatedTodo;
+        // })
+    };
 
-    // const selectAll = (index) => {
 
-    // }
-
+    /*
+        const [inputText, setInputText] = useState("");
+        const [todo, setTodo] = useState([]);
+        const [completedTodo, setCompletedTodo] = useState([]);
+     
+        useEffect(() => {
+            const pendingTask = JSON.parse(localStorage.getItem("pendingList")) || [];
+            const completeData = JSON.parse(localStorage.getItem("completeList")) || [];
+            setCompletedTodo(completeData);
+            setTodo(pendingTask);
+        }, []);
+     
+        const submit = () => {
+            if (inputText !== "") {
+                const newTodo = {
+                    id: Date.now(),
+                    text: inputText,
+                    completed: false
+                };
+                setTodo(prevTodo => {
+                    const updatedTodo = [...prevTodo, newTodo];
+                    localStorage.setItem("pendingList", JSON.stringify(updatedTodo));
+                    return updatedTodo;
+                });
+                setInputText("");
+            }
+        };
+     
+        const toggleTaskCompletion = (taskId) => {
+            const updatedTodo = todo.map((task) => {
+                if (task.id === taskId) {
+                    return { ...task, completed: !task.completed }
+                }
+                return task;
+            });
+            setTodo(prevTodo => {
+                localStorage.setItem("pendingList", JSON.stringify(updatedTodo));
+                return updatedTodo;
+            });
+        };
+     
+        const taskComplete = () => {
+            const completedTasks = todo.filter((task) => task.completed);
+            if (completedTasks.length > 0) {
+                setCompletedTodo(prevCompleted => {
+                    const updatedCompleted = [...prevCompleted, ...completedTasks];
+                    localStorage.setItem("completeList", JSON.stringify(updatedCompleted));
+                    return updatedCompleted;
+                });
+            }
+     
+            const remainingTasks = todo.filter((task) => !task.completed);
+            setTodo(remainingTasks);
+            localStorage.setItem("pendingList", JSON.stringify(remainingTasks));
+        };
+     
+        const toggleTaskNotCompletion = (completedTaskId) => {
+            const updateCompletedTasks = completedTodo.map((task) => {
+                if (task.id === completedTaskId) {
+                    return { ...task, completed: !task.completed };
+                }
+                return task;
+            });
+            setCompletedTodo(updateCompletedTasks);
+            localStorage.setItem("completeList", JSON.stringify(updateCompletedTasks));
+        };
+     
+        const taskNotComplete = () => {
+            const notCompletedTasks = completedTodo.filter((task) => !task.completed);
+            if (notCompletedTasks.length > 0) {
+                setTodo(prevTodo => {
+                    const updatedTodo = [...prevTodo, ...notCompletedTasks];
+                    localStorage.setItem("pendingList", JSON.stringify(updatedTodo));
+                    return updatedTodo;
+                });
+     
+                const remainingTasks = completedTodo.filter((task) => task.completed);
+                setCompletedTodo(remainingTasks);
+                localStorage.setItem("completeList", JSON.stringify(remainingTasks));
+            }
+        };
+     
+        const selectAll = () => {
+            const updatedTodo = todo.map(task => ({ ...task, completed: true }));
+            setTodo(prevTodo => {
+                localStorage.setItem("pendingList", JSON.stringify(updatedTodo));
+                return updatedTodo;
+            });
+        };
+    */
     return (
         <>
             <div className="mainpage">
@@ -167,17 +291,18 @@ export default function ToDolist() {
                     <div className="page1">
 
                         <div className="heading">
-                            <h1>Pending Task List</h1>
+                            <h1>Pending Task</h1>
                         </div>
 
                         {todo.length > 0 && (
                             <div className="pending-task">
 
-                                {/* <input type="checkbox" onChange={(i) => selectAll(i)} /> <p>select all</p> */}
+                                <input type="checkbox" onChange={() => selectAll()} /> <label>select all</label>
+
                                 {todo.map((item) => (
                                     <ul key={item.id}>
                                         <li>
-                                            <input type='checkbox' onChange={() => toggleTaskCompletion(item.id)} />
+                                            <input type='checkbox' checked={item.completed} onChange={() => toggleTaskCompletion(item.id)} />
                                             {item.text}
                                         </li>
                                     </ul>
@@ -195,10 +320,12 @@ export default function ToDolist() {
 
                         {completedTodo.length > 0 && (
                             <div className="completed-tasks">
+                                <input type="checkbox" onChange={() => selectAll()} /> <label>select all</label>
+
                                 {completedTodo.map((completedTask) => (
                                     <ul key={completedTask.id}>
                                         <li>
-                                            <input type='checkbox' onChange={() => toggleTaskNotCompletion(completedTask.id)} />
+                                            <input type='checkbox'  onChange={() => toggleTaskNotCompletion(completedTask.id)} />
                                             {completedTask.text}</li>
                                     </ul>
                                 ))}
