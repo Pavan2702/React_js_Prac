@@ -1,10 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Rubik Glitch");
 @import url("https://fonts.googleapis.com/css?family=Permanent Marker");
+@import url("https://fonts.googleapis.com/css?family=Source Code Pro");
+@import url("https://fonts.googleapis.com/css?family=Caveat");
 
 * {
     margin: 0;
     padding: 0;
 }
+
 
 body {
     display: block;
@@ -17,7 +20,7 @@ body {
 }
 
 .mainpage .content {
-    padding-top: 10vh;
+    padding-top: 5vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -72,24 +75,95 @@ body {
     gap: 5vw;
 }
 
+.pages ul {
+    padding-left: unset;
+}
+
 .mainpage .pages .page1 {
-    padding-top: 50px;
     width: 50%;
     height: 70vh;
     background-color: whitesmoke;
 }
 
 .mainpage .pages .page2 {
-    padding-top: 50px;
-
     width: 50%;
     background-color: whitesmoke;
 }
 
-.pages .heading{
+.pages .heading {
     /* background-color: aqua; */
     font-family: Permanent Marker;
     display: flex;
     width: 50%;
     margin: auto;
+}
+
+.pages .tick {
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: -109px;
+    gap: 37px;
+
+}
+ .pages .page2 .icons{
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: -54px;
+    gap: 34px;
+ }
+
+.pages .line {
+    border: 2px solid black;
+    opacity: var(--bs-btn-padding-y);
+}
+
+.pages .select {
+    display: flex;
+    justify-content: end;
+    color: black;
+    font-size: 20px;
+    align-items: center;
+    margin-right: 50px;
+    object-fit: contain;
+    font-family: Source Code Pro;
+}
+
+.pages .select input {
+    height: 20px;
+    aspect-ratio: 3/2;
+}
+
+.pages .vr {
+    /* rotate: 90deg; */
+    /* height: 500px; */
+    z-index: 1;
+    opacity: var(--bs-btn-padding-x);
+}
+
+.pages li {
+    display: flex;
+    font-family: Caveat;
+    font-size: 30px;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 7rem;
+}
+
+
+.pages li input {
+    height: 20px;
+    aspect-ratio: 3/2;
+}
+
+.pages .btn1 {
+    display: flex;
+    justify-content: center;
+}
+
+.page2 .btn2{
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
 }

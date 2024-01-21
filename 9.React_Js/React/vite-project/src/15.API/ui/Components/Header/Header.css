@@ -1,0 +1,12 @@
+.navLink a{
+   color: black;
+}
+
+.active {
+   color: red !important;
+   /* background-color: red; */
+}
+
+.iLine{
+   margin: unset;
+}

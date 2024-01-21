@@ -39,7 +39,7 @@ export default function Header() {
   return (
     <>
       {/* Header */}
-      <header>
+      <header className='head'>
         <Register modal={regmodal} toggle={Regtoggle} />
         <Login modal={loginmodal} toggle={Logtoggle} registertologin={Regtoggle} />
 
@@ -54,7 +54,7 @@ export default function Header() {
               <NavItem>
                 <NavLink to={"/about"} onClick={toggle}>About</NavLink>
               </NavItem>
-              {data.usertype === "admin" ?
+              {data.usertype === "ad min" ?
                 (
                   <NavItem>
                     <NavLink to={"/admin"} onClick={toggle}>Admin</NavLink>

@@ -4,7 +4,6 @@ import About from '../ui/Pages/About'
 import Home from '../ui/Pages/Home'
 import Header from '../ui/Components/Header/Header'
 import Footer from '../ui/Components/Footer/Footer'
-import Admin from '../ui/Pages/Admin'
 import ProtectedRouter from './ProtectedRouter'
 import Profile from '../ui/Pages/Profile'
 

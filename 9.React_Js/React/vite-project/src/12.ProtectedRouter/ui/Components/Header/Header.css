@@ -22,7 +22,7 @@
     width: 100%;
   }
   
-  header {
+  .head {
     background: #000;
     color: #fff;
     width: 100vw;
@@ -34,7 +34,7 @@
     /* box-shadow: 0 0 50px #000; */
   }
   
-  header:before {
+  .head:before {
     content: "";
     position: absolute;
     top: -120px;
