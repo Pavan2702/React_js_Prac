@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import './ToDolist.css'
-import { ArrowRightLeft } from 'lucide-react';
+import { ArrowRightLeft, EditIcon } from 'lucide-react';
 import { Button } from 'reactstrap';
 import Swal from 'sweetalert2';
 
 
-export default function PendingTask({ todo, setTodo, completedTodo, setCompletedTodo }) {
+export default function PendingTask({ todo, setTodo, completedTodo, setCompletedTodo,editHandler }) {
     const [selectedNotDone, setSelectedNotDone] = useState([])
 
 
@@ -69,8 +69,11 @@ export default function PendingTask({ todo, setTodo, completedTodo, setCompleted
         localStorage.setItem("completeList", JSON.stringify([...completedTodo, ...done]));
         localStorage.setItem("pendingList", JSON.stringify(notDone));
         setSelectedNotDone([]);
-
     };
+
+    const editData = (data, index) => {
+        editHandler(data, index)
+    }
     return (
         <>
             <div className="page1">
@@ -105,6 +108,8 @@ export default function PendingTask({ todo, setTodo, completedTodo, setCompleted
                                             role='button'
                                             onClick={() => onArrowTaskComplete(index)}
                                         />
+
+                                        <EditIcon onClick={() => editData(item, index)} color='Blue' role='button' />
                                     </div>
                                 </li>
                                 <hr className='iLine' />

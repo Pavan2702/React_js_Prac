@@ -1,4 +1,4 @@
-import { ArchiveRestore, Edit, Trash2, Trash2Icon } from 'lucide-react'
+import { ArchiveRestore, Edit, Space, Trash2, Trash2Icon } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { Button, Table } from 'reactstrap'
 const sizeArr = ["41", "42", "43", "44 ", "45"]
@@ -68,9 +68,42 @@ export default function DatatoTable({ toggle, productData, editHandler, deleteHa
                                             <td>{e.discountPercentage}</td>
                                             <td>{(e.price * e.discountPercentage / 100).toFixed(2)}</td>
                                             <td>{e.category}</td>
+                                            {/* <td>
+                                                {
+                                                    e.color.map((e) => {
+                                                        <div
+                                                            style={{
+                                                                height:"10px",
+                                                                width:"20px",
+                                                                backgroundColor:e
+                                                            }}
+                                                        >
+                                                            <p>{e.color}</p>
+                                                        </div>
+                                                    })
+                                                }
+                                            </td> */}
                                             <td>
-                                                {e.color.join(', ')}
+                                                <div style={{
+                                                    display:'flex',
+                                                    justifyContent:"space-around"
+                                                }}>
+                                                    {e.color.map((color, index) => (
+                                                        <div
+                                                            key={index}
+                                                            style={{
+                                                                height: "10px",
+                                                                width: "10px",
+                                                                borderRadius: "50%",
+                                                                backgroundColor: color
+                                                            }}
+                                                        >
+                                                            <p>{color}</p>
+                                                        </div>
+                                                    ))}
+                                                </div>
                                             </td>
+
                                             <td className='d-flex align-items-center gap-2'>{
                                                 sizeArr.map((ele, i) => {
                                                     return (<div key={i}

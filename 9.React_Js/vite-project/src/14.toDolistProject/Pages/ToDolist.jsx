@@ -5,6 +5,7 @@ import './ToDolist.css';
 import Swal from 'sweetalert2';
 import PendingTask from './PendingTask';
 import DoneTask from './DoneTask';
+import { Edit } from 'lucide-react';
 
 /*
 export default function ToDolist() {
@@ -76,6 +77,7 @@ export default function ToDolist() {
     const [inputText, setInputText] = useState("");
     const [todo, setTodo] = useState([]);
     const [completedTodo, setCompletedTodo] = useState([]);
+    const [editIndex, setEditIndex] = useState(null)
 
     //use useeffect for local storage to store a data 
     useEffect(() => {
@@ -89,7 +91,7 @@ export default function ToDolist() {
 
     const submit = (e) => {
         e?.preventDefault()
-        
+
         if (inputText !== "") {
             /*const newTodo = {
                 id: Date.now(),
@@ -112,6 +114,22 @@ export default function ToDolist() {
         }
     }
 
+    const editHandler = (editedData, index) => {
+        setInputText(editedData);
+        setEditIndex(index);
+    }
+
+    const updateData = () => {
+        if (editIndex !== null) {
+            const storeUpdate = [...todo]
+            storeUpdate[editIndex] = inputText.charAt(0).toUpperCase() + inputText.slice(1)
+            setTodo(storeUpdate)
+            localStorage.setItem("pendingList", JSON.stringify(storeUpdate));
+        }
+        setEditIndex(null)
+        setInputText("")
+    }
+
     return (
         <>
             <div className="mainpage">
@@ -123,16 +141,26 @@ export default function ToDolist() {
                                 <input type="text" value={inputText} onChange={(e) => setInputText(e.target.value)} />
                             </div>
                             <div className="bt1">
-                                <Button
-                                    id="submit"
-                                    type="submit"
-                                ><span>+</span></Button>
+                                {
+                                    (editIndex !== null) ? (
+                                        <Edit
+                                            id="update"
+                                            type="update"
+                                            onClick={updateData}
+                                        />
+                                    ) : (
+                                        <Button
+                                            id="submit"
+                                            type="submit"
+                                        ><span>+</span></Button>
+                                    )
+                                }
                             </div>
                         </div>
                     </form>
                 </div>
                 <div className="pages">
-                    <PendingTask todo={todo} setTodo={setTodo} completedTodo={completedTodo} setCompletedTodo={setCompletedTodo}/>
+                    <PendingTask todo={todo} setTodo={setTodo} completedTodo={completedTodo} setCompletedTodo={setCompletedTodo} editHandler={editHandler} />
                     <DoneTask completedTodo={completedTodo} setCompletedTodo={setCompletedTodo} todo={todo} setTodo={setTodo} />
                 </div>
                 {/* <div className="pages">

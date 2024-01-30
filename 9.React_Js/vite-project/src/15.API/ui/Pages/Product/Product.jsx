@@ -22,6 +22,7 @@ export default function Product() {
   let [fetchFlag, setFetchFlag] = useState(true)
   let [data, setData] = useState([])
   let [productData, setProductData] = useState(initialData)
+  
 
 
   const toggle = () => setModal(!modal);
@@ -33,7 +34,7 @@ export default function Product() {
       url: 'http://localhost:9999/product/getAll',
     })
       .then((res) => {
-        console.log("------->", res.data);
+        // console.log("------->", res.data);
         setData(res?.data?.data);
       })
       .catch((err) => {
@@ -43,8 +44,8 @@ export default function Product() {
 
 
   const submitHandler = (data) => {
-    console.log("🚀 ~ submitHandler ~ data:", data)
-    console.log("========>>>", data)
+    // console.log("🚀 ~ submitHandler ~ data:", data)
+    // console.log("========>>>", data)
     axios({
       method: "post",
       url: `http://localhost:9999/product/create`,
