@@ -25,6 +25,7 @@ import RouterPro from "./12.ProtectedRouter/Router/RouterPro"
 import ToDolist from "./14.toDolistProject/Pages/ToDolist"
 import ApiRouter from "./15.API/Router/ApiRouter"
 import Product from "./15.API/ui/Pages/Product/Product";
+import AppRedux from "./16.Redux/AppRedux";
 // import FormValidation from "./9.Form/FormValidation"
 // import FormValidationTask from "./9.Form/FormValidationTask"
 
@@ -64,7 +65,8 @@ function App() {
     {/* <PasswordTask/> */}
     {/* <RouterPro/> */}
     {/* <ToastContainer/> */}
-    <ToDolist/>
+    {/* <ToDolist/> */}
+    <AppRedux/>
     {/* <ApiRouter/> */}
     {/* <Product/> */}
     </div>
