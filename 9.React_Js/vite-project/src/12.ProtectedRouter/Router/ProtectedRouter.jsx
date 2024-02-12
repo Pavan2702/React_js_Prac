@@ -6,7 +6,7 @@ export default function ProtectedRouter({ Component }) {
     useEffect(() => {
         let ProData = JSON.parse(localStorage.getItem("LoginData"))
         // Object.keys(normal).length
-        if (ProData && Object.keys(ProData).length === 0 && ProData.usertype !== "admin"  ) {
+        if (ProData && Object.keys(ProData).length === 0 && ProData.usertype !== "Admin") {
             navigate1("/")
         }
     })

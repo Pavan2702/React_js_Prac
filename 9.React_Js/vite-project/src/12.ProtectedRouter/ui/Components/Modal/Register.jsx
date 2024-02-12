@@ -5,18 +5,19 @@ import { toast } from 'react-toastify';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Label, Input, Form, Col, Row } from 'reactstrap';
 import Login from './Login';
 
-export default function Register({ modal, toggle }) {
+export default function Register({ modal, toggle, logintoregister }) {
     let [user, setUser] = useState({
         email: "",
         password: "",
         usertype: "",
-        // adress: "",
-        // adress2: "",
-        // city: "",
-        // state: "",
-        // zip: "",
+        age: "",
+        mobile: ""
     })
 
+    const Logtoggle = () => {
+        logintoregister()
+        toggle()
+    }
 
     function submitBtn(e) {
 
@@ -40,9 +41,8 @@ export default function Register({ modal, toggle }) {
                 email: "",
                 password: "",
                 usertype: "",
-                // age: "",
-                // occupation: "",?
-                // mobile: ""
+                age: "",
+                mobile: ""
             })
             e.preventDefault()
             toggle()
@@ -50,7 +50,6 @@ export default function Register({ modal, toggle }) {
     }
     return (
         <div>
-            {/* <Login /> */}
             <Modal isOpen={modal} toggle={toggle} >
                 <ModalHeader toggle={toggle}>Modal title</ModalHeader>
                 <ModalBody>
@@ -87,77 +86,62 @@ export default function Register({ modal, toggle }) {
                                 </FormGroup>
                             </Col>
                         </Row>
-                        <FormGroup>
-                            <Label for="exampleAddress">
-                                Enter Type
-                            </Label>
-                            <Input
-                                id="exampleAddress"
-                                name="usertype"
-                                value={user?.usertype}
-                                placeholder="Enter Your User Type"
-                                onChange={(e) => setUser({ ...user, usertype: e?.target?.value })}
-                            />
-                        </FormGroup>
-
-                        {/* <FormGroup>
-                            <Label for="exampleAddress">
-                                Address
-                            </Label>
-                            <Input
-                                id="exampleAddress"
-                                name="address"
-                                placeholder="1234 Main St"
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label for="exampleAddress2">
-                                Address 2
-                            </Label>
-                            <Input
-                                id="exampleAddress2"
-                                name="address2"
-                                placeholder="Apartment, studio, or floor"
-                            />
-                        </FormGroup>
                         <Row>
                             <Col md={6}>
                                 <FormGroup>
-                                    <Label for="exampleCity">
-                                        City
+                                    <Label for="mobileNUm">
+                                        Mobile Number
                                     </Label>
                                     <Input
-                                        id="exampleCity"
-                                        name="city"
+                                        id="mobileNUm"
+                                        name="mobileNUm"
+                                        placeholder="enter your mobile number"
+                                        type="number"
+                                        onChange={(e) => setUser({ ...user, mobile: e?.target?.value })}
                                     />
                                 </FormGroup>
                             </Col>
-                            <Col md={4}>
+                            <Col md={6}>
                                 <FormGroup>
-                                    <Label for="exampleState">
-                                        State
+                                    <Label for="age">
+                                        Age
                                     </Label>
                                     <Input
-                                        id="exampleState"
-                                        name="state"
+                                        id="age"
+                                        name="age"
+                                        placeholder="Enter Your Age"
+                                        type="number"
+                                        onChange={(e) => setUser({ ...user, age: e?.target?.value })}
                                     />
                                 </FormGroup>
                             </Col>
-                            <Col md={2}>
-                                <FormGroup>
-                                    <Label for="exampleZip">
-                                        Zip
-                                    </Label>
-                                    <Input
-                                        id="exampleZip"
-                                        name="zip"
-                                    />
-                                </FormGroup>
-                            </Col>
-                        </Row> */}
+                        </Row>
+                        <FormGroup>
+                            <Label for="usertype">
+                                Select type
+                            </Label>
+                            <Input
+                                id="usertype"
+                                name="select"
+                                value={user?.usertype}
+                                type="select"
+                                placeholder='.....'
+                                onChange={(e) => setUser({ ...user, usertype: e?.target?.value })}
+                            >
+                                <option>
+                                    Select...
+                                </option>
+                                <option>
+                                    User
+                                </option>
+                                <option>
+                                    Admin
+                                </option>
+                            </Input>
+                        </FormGroup>
                     </Form>
                     <FormGroup>
-                        {/* <label>Don't have an account <p role='button' onClick={Regtoggle}>Register here</p></label> */}
+                        <label>Alraedy have an account <p role='button' onClick={Logtoggle}>Log-in here</p></label>
                     </FormGroup>
                 </ModalBody>
                 <ModalFooter>

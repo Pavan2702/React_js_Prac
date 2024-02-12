@@ -10,11 +10,8 @@ export default function Newuser({ modal, toggle }) {
         email: "",
         password: "",
         usertype: "",
-        // adress: "",
-        // adress2: "",
-        // city: "",
-        // state: "",
-        // zip: "",
+        age: "",
+        mobile: ""
     })
 
 
@@ -38,9 +35,8 @@ export default function Newuser({ modal, toggle }) {
                 email: "",
                 password: "",
                 usertype: "",
-                // age: "",
-                // occupation: "",
-                // mobile: ""
+                age: "",
+                mobile: ""
             })
             e.preventDefault()
             toggle()
@@ -85,74 +81,59 @@ export default function Newuser({ modal, toggle }) {
                                 </FormGroup>
                             </Col>
                         </Row>
-                        <FormGroup>
-                            <Label for="exampleAddress">
-                                Enter Type
-                            </Label>
-                            <Input
-                                id="exampleAddress"
-                                name="usertype"
-                                value={user?.usertype}
-                                placeholder="Enter Your User Type"
-                                onChange={(e) => setUser({ ...user, usertype: e?.target?.value })}
-                            />
-                        </FormGroup>
-
-                        {/* <FormGroup>
-                            <Label for="exampleAddress">
-                                Address
-                            </Label>
-                            <Input
-                                id="exampleAddress"
-                                name="address"
-                                placeholder="1234 Main St"
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label for="exampleAddress2">
-                                Address 2
-                            </Label>
-                            <Input
-                                id="exampleAddress2"
-                                name="address2"
-                                placeholder="Apartment, studio, or floor"
-                            />
-                        </FormGroup>
                         <Row>
                             <Col md={6}>
                                 <FormGroup>
-                                    <Label for="exampleCity">
-                                        City
+                                    <Label for="mobileNUm">
+                                        Mobile Number
                                     </Label>
                                     <Input
-                                        id="exampleCity"
-                                        name="city"
+                                        id="mobileNUm"
+                                        name="mobileNUm"
+                                        placeholder="enter your mobile number"
+                                        type="number"
+                                        onChange={(e) => setUser({ ...user, mobile: e?.target?.value })}
                                     />
                                 </FormGroup>
                             </Col>
-                            <Col md={4}>
+                            <Col md={6}>
                                 <FormGroup>
-                                    <Label for="exampleState">
-                                        State
+                                    <Label for="age">
+                                        Age
                                     </Label>
                                     <Input
-                                        id="exampleState"
-                                        name="state"
+                                        id="age"
+                                        name="age"
+                                        placeholder="Enter Your Age"
+                                        type="number"
+                                        onChange={(e) => setUser({ ...user, age: e?.target?.value })}
                                     />
                                 </FormGroup>
                             </Col>
-                            <Col md={2}>
-                                <FormGroup>
-                                    <Label for="exampleZip">
-                                        Zip
-                                    </Label>
-                                    <Input
-                                        id="exampleZip"
-                                        name="zip"
-                                    />
-                                </FormGroup>
-                            </Col>
-                        </Row> */}
+                        </Row>
+                        <FormGroup>
+                            <Label for="usertype">
+                                Select type
+                            </Label>
+                            <Input
+                                id="usertype"
+                                name="select"
+                                value={user?.usertype}
+                                type="select"
+                                placeholder='.....'
+                                onChange={(e) => setUser({ ...user, usertype: e?.target?.value })}
+                            >
+                                <option>
+                                    Select...
+                                </option>
+                                <option>
+                                    User
+                                </option>
+                                <option>
+                                    Admin
+                                </option>
+                            </Input>
+                        </FormGroup>
                     </Form>
                     <FormGroup>
                         {/* <label>Don't have an account <p role='button' onClick={Regtoggle}>Register here</p></label> */}

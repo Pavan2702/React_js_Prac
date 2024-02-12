@@ -6,7 +6,6 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import Register from '../Modal/Register';
 import Login from '../Modal/Login';
 import { CircleUser } from 'lucide-react';
-// import { FaRegUserCircle } from "react-icons/fa";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,24 +37,24 @@ export default function Header() {
   return (
     <>
       <header className='head'>
-        <Register modal={regmodal} toggle={Regtoggle} />
+        <Register modal={regmodal} toggle={Regtoggle} logintoregister={Logtoggle} />
         <Login modal={loginmodal} toggle={Logtoggle} registertologin={Regtoggle} />
 
         <Navbar color="light" light expand="lg">
           <NavbarBrand href="/">FOODies</NavbarBrand>
-          <NavbarToggler onClick={toggle} />
+          <NavbarToggler />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto link" navbar>
               <NavItem>
-                <NavLink to={"/"} onClick={toggle}>Home</NavLink>
+                <NavLink to={"/"}>Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to={"/about"} onClick={toggle}>About</NavLink>
+                <NavLink to={"/about"}>About</NavLink>
               </NavItem>
-              {data.usertype === "ad min" ?
+              {data.usertype === "Admin" ?
                 (
                   <NavItem>
-                    <NavLink to={"/admin"} onClick={toggle}>Admin</NavLink>
+                    <NavLink to={"/admin"}>Admin</NavLink>
                   </NavItem>
                 ) : (null)
               }
@@ -65,17 +64,18 @@ export default function Header() {
             </Nav>
             <Nav className="m-auto" navbar>
 
-              {data && Object.keys(data).length > 0 ?
-                (<NavItem>
-                  <Button onClick={logoutHandler}>Log Out</Button>
-                </NavItem>)
-                :
-                (<NavItem>
-                  <Button onClick={Logtoggle}>Log in</Button>
-                </NavItem>)
+              {
+                data && Object.keys(data).length > 0 ?
+                  (<NavItem>
+                    <Button onClick={logoutHandler}>Log Out</Button>
+                  </NavItem>)
+                  :
+                  (<NavItem>
+                    <Button onClick={Logtoggle}>Log in</Button>
+                  </NavItem>)
               }
               <NavItem className='icons'>
-                <NavLink to={"/profile"} onClick={toggle}> <CircleUser /></NavLink>
+                <NavLink to={"/profile"}> <CircleUser /></NavLink>
               </NavItem>
             </Nav>
           </Collapse>

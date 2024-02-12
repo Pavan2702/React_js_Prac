@@ -63,10 +63,10 @@ function App() {
     {/* <Router/> */}
     {/* <UseReducer/> */}
     {/* <PasswordTask/> */}
-    {/* <RouterPro/> */}
+    <RouterPro/>
     {/* <ToastContainer/> */}
     {/* <ToDolist/> */}
-    <AppRedux/>
+    {/* <AppRedux/> */}
     {/* <ApiRouter/> */}
     {/* <Product/> */}
     </div>

@@ -10,7 +10,6 @@ export default function Login({ modal, toggle, registertologin }) {
     const Regtoggle = (() => {
         registertologin()
         toggle()
-
     });
 
     function submitBtn() {
@@ -23,12 +22,9 @@ export default function Login({ modal, toggle, registertologin }) {
         } else if (matchData) {
             if (matchData.password !== loginuser.password) {
                 alert("Enter correct Password")
-
             } else {
-
                 localStorage.setItem("LoginData", JSON.stringify(matchData))
                 toggle()
-
             }
         }
 
@@ -38,7 +34,6 @@ export default function Login({ modal, toggle, registertologin }) {
             password: "",
         })
         toggle()
-
     }
     return (
         <>

@@ -6,6 +6,7 @@ import Header from '../ui/Components/Header/Header'
 import Footer from '../ui/Components/Footer/Footer'
 import ProtectedRouter from './ProtectedRouter'
 import Profile from '../ui/Pages/Profile'
+import Admin from '../ui/Pages/Admin'
 
 export default function RouterPro() {
     return (
