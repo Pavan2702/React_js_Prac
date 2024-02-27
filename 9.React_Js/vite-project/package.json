@@ -28,6 +28,7 @@
     "react-select": "^5.8.0",
     "react-toastify": "^10.0.2",
     "reactstrap": "^9.2.0",
+    "redux-form": "^8.3.10",
     "sweetalert2": "^11.6.13"
   },
   "devDependencies": {

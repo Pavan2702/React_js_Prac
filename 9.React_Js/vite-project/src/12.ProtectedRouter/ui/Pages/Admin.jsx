@@ -9,41 +9,37 @@ export default function Admin() {
   const [fillterData, setFilterData] = useState([])
   const [userType, setUserType] = useState("All")
   const [search, setSearch] = useState("")
-  console.log("🚀 ~ Admin ~ userType:", userType)
+  const [searchData, setSearchData] = useState([])
 
   const Regtoggle = () => setRegmodal(!regmodal);
 
   useEffect(() => {
     let RegData = JSON.parse(localStorage.getItem("RegisterData")) || []
-    setFilterData(RegData);
+    // setFilterData(RegData);
     setData(RegData)
   }, [])
 
   useEffect(() => {
-    const filter = () => {
-      if (userType === "All") {
-        setFilterData(data);
-      } else {
-        const filtered = data.filter(user => user.usertype === userType);
-        setFilterData(filtered);
-      }
-    };
-
-    filter()
-  }, [userType, data])
-  
-  useEffect(()=>{
-    const search = () => {
-      let searchData = fillterData.filter((e)=>{
-        e?.email.includes(search)
-      })
-      console.log("🚀 ~ searchData ~ searchData:", searchData)
-      setFilterData(searchData)
+    if (userType === "All") {
+      setFilterData(data);
+    } else {
+      const filtered = data.filter(user => user.usertype === userType);
+      setFilterData(filtered);
     }
-    search()
 
-  },[search])
+  }, [userType, data])
 
+  useEffect(() => {
+    const searchData = fillterData.filter((e) =>
+      e?.email.toLowerCase().includes(search.toLowerCase())
+    );
+    if (search==="") {
+      setFilterData(fillterData)
+    }else{
+      setSearchData(searchData);
+
+    }
+  }, [search]);
 
 
   // function showPassword(index) {
@@ -101,31 +97,60 @@ export default function Admin() {
         </thead>
         <tbody>
           {
-            fillterData.map((e, i) => {
-              return (
+            search === "" ? (
+
+              fillterData.map((e, i) => {
+                return (
+                  <tr key={i}>
+                    <th>{i + 1}</th>
+                    <td>{e.email}</td>
+                    <td>{e.password}</td>
+                    {/* <td>{passIndex?.includes(i) ? e.password : '********'}</td>
+                <td>
+                {passIndex.includes(i) ? (
+                  <Eye
+                  role="button"
+                  onClick={() => hidePassword(i)}
+                  />
+                  ) : (
+                    <EyeOff
+                    role="button"
+                    onClick={() => showPassword(i)}
+                    />
+                    )}
+                  </td> */}
+                    <td>{e.usertype}</td>
+                  </tr>
+
+                )
+              })
+
+            ) : (
+              searchData.map((e, i) => (
                 <tr key={i}>
                   <th>{i + 1}</th>
                   <td>{e.email}</td>
                   <td>{e.password}</td>
                   {/* <td>{passIndex?.includes(i) ? e.password : '********'}</td>
-                <td>
-                  {passIndex.includes(i) ? (
-                    <Eye
-                      role="button"
-                      onClick={() => hidePassword(i)}
-                    />
-                  ) : (
-                    <EyeOff
-                      role="button"
-                      onClick={() => showPassword(i)}
-                    />
+              <td>
+              {passIndex.includes(i) ? (
+                <Eye
+                role="button"
+                onClick={() => hidePassword(i)}
+                />
+                ) : (
+                  <EyeOff
+                  role="button"
+                  onClick={() => showPassword(i)}
+                  />
                   )}
                 </td> */}
                   <td>{e.usertype}</td>
                 </tr>
+              ))
+            )
+          }
 
-              )
-            })}
         </tbody>
       </Table></>
   )
