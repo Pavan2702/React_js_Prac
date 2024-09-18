@@ -1,22 +1,70 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Button } from 'reactstrap';
-import { FatchUserData } from '../Redux/features/API/Api';
+import { Button, Table } from 'reactstrap';
+import { FatchSingleUserData, FatchUserData } from '../Redux/features/API/Api';
+import { useNavigate } from 'react-router-dom';
 
 export default function APIData() {
+    const dispatch = useDispatch()
+    let navigate = useNavigate()
 
-let APIData = useSelector((store)=>{
-    return store.APISlice;
-})
-console.log("🚀 ~ APIData ~ APIData:", APIData)
+    useEffect(() => {
+        dispatch(FatchUserData())
+    }, [])
 
-const dispatch = useDispatch()
+    let APIData1 = useSelector((store) => {
+        return store.APISlice.userData;
+    })
+
+    const Aboutdetails = (i) => {
+        dispatch(FatchSingleUserData(i))
+        navigate("/about")
+    }
+
 
     return (
         <>
             <div>
-                <Button onClick={()=>dispatch(FatchUserData())}> click Me</Button>
-            </div>
+
+                <Table>
+                    <thead>
+                        <tr>
+                            <th>
+                                #
+                            </th>
+                            <th>
+                                First Name
+                            </th>
+                            <th>
+                                Contact No
+                            </th>
+                            <th>
+                                Details
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            APIData1?.map((e, i) => {
+                                return <tr key={i}>
+                                    <th scope="row">
+                                        {i + 1}
+                                    </th>
+                                    <td>
+                                        {e.username}
+                                    </td>
+                                    <td>
+                                        {e.phone}
+                                    </td>
+                                    <td>
+                                        <Button onClick={() => Aboutdetails(e.id)}>Show Details</Button>
+                                    </td>
+                                </tr>
+                            })
+                        }
+                    </tbody>
+                </Table>
+            </div >
         </>
     )
 }

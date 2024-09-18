@@ -27,6 +27,7 @@ import ApiRouter from "./15.API/Router/ApiRouter"
 import Product from "./15.API/ui/Pages/Product/Product";
 import AppRedux from "./16.Redux/AppRedux";
 import AppReduxAsmnt from "./17.Redux Asmnt/AppReduxAsmnt";
+import Task1 from "./8.Useeffect/task1";
 // import FormValidation from "./9.Form/FormValidation"
 // import FormValidationTask from "./9.Form/FormValidationTask"
 
@@ -67,10 +68,11 @@ function App() {
     {/* <RouterPro/> */}
     {/* <ToastContainer/> */}
     {/* <ToDolist/> */}
-    <AppRedux/>
+    {/* <AppRedux/> */}
     {/* <ApiRouter/> */}
     {/* <Product/> */}
     {/* <AppReduxAsmnt/> */}
+    <Task1/>
     </div>
 
   )

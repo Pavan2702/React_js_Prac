@@ -14,7 +14,7 @@ const genderArry = ["male", "female", "other"]
 const sizeArry = ["41", "42", "43", "44 ", "45"]
 
 export default function ProductForm({ toggle, productData, updateHandler, submitHandler }) {
-    let [addProduct, setAddProduct] = useState(productData)
+    let [   addProduct, setAddProduct] = useState(productData)
     let [discountPercentage, setDiscountPercentage] = useState(0);
 
     useEffect(() => {

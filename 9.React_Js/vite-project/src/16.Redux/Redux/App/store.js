@@ -11,6 +11,6 @@ export const store = configureStore({
         userReducer1: amount,
         userReducer2: point,
         userReducer3: InputData,
-        APISlice
+        APISlice: APISlice,
     }
 })

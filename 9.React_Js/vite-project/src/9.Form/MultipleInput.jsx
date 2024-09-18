@@ -91,7 +91,7 @@ export default function MultipleInput() {
                 age: '',
                 email: '',
                 password: '',
-                gender :'',
+                gender: '',
                 hobby: []
             })
         }
@@ -210,8 +210,8 @@ export default function MultipleInput() {
                     <Button color="warning" className="w-100 mt-3" onClick={removeAll}>Delete All</Button>
                 </Form>
             </div>
-            <div className='d-flex justify-content-center mt-3'> 
-            <input className="m-auto w-25 p-2 border border-dark border-3" type="text" placeholder="Search here" onChange={(e) => setSearchText(e.target.value)} />
+            <div className='d-flex justify-content-center mt-3'>
+                <input className="m-auto w-25 p-2 border border-dark border-3" type="text" placeholder="Search here" onChange={(e) => setSearchText(e.target.value)} />
             </div>
 
             <div className="pt-3">

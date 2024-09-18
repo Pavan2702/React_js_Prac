@@ -13,7 +13,6 @@ const InputData = createSlice({
         },
         updateValue: (state, action) => {
             state.inputValue.push(action.payload)
-
         }
     }
 })
